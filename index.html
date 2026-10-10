@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#1E2A44">
+<meta name="color-scheme" content="light">
+<title>Numerologie — curs interactiv</title>
+<meta name="description" content="Curs interactiv despre numerologie: istoric, calculul numărului Drumului Vieții și al numerologiei numelui, patru niveluri de curs, exerciții practice, diagrama procesului de reducere, sistemele pitagoreic, caldeean și kabbalistic comparate, glosar, jurnal și autoevaluare. Aplicație offline, fără frontiere.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Numerologie — curs interactiv">
+<meta property="og:description" content="Curs interactiv despre numerologie: istoric, calculul numărului Drumului Vieții și al numerologiei numelui, patru niveluri de curs, exerciții practice, diagrama procesului de reducere, sistemele pitagoreic, caldeean și kabbalistic comparate, glosar, jurnal și autoevaluare. Aplicație offline, fără frontiere.">
+<meta property="og:locale" content="ro_RO">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 rx=%273%27 fill=%27%231E2A44%27/%3E%3C/svg%3E">
+<noscript><style>.panel{display:block !important;margin-bottom:40px}.toolbar,.nav-toggle,#quiz,.draw-box,#calcForm,.journal-btns{display:none !important}</style></noscript>
+<style>
+  :root{
+    --bg:#EAECF1;
+    --bg-panel:#F7F8FB;
+    --ink:#1E2A44;
+    --ink-soft:#4C5A78;
+    --line:#C7CCDA;
+    --accent:#A6672E;
+    --accent-deep:#7C4A1E;
+    --gold:#B08D3D;
+    --gold-soft:#F1E8D2;
+    --radius-s:4px;
+    --radius-m:10px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --maxw:760px;
+    --focus:#7C4A1E;
+    --note-bg:#F1E8D2;
+    --note-line:#B08D3D;
+    --ghost:#7C4A1E;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--gold-soft)}
+  a{color:var(--accent-deep)}
+  .app{display:flex;min-height:100vh}
+  body{
+    background-image:
+      linear-gradient(rgba(30,42,68,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,42,68,.045) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+
+  .sidebar{width:272px;flex:0 0 272px;background:var(--ink);color:#DCE1EC;padding:28px 20px 40px;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .brand{margin-bottom:26px}
+  .brand .mark{width:52px;height:52px;margin-bottom:12px;display:block}
+  .brand h1{font-size:1.5rem;font-weight:800;margin:0 0 4px;color:#fff;letter-spacing:-.01em}
+  .brand p{margin:0;font-size:.82rem;color:#9AA6C0;max-width:24ch}
+  .navgroup{margin-top:22px}
+  .navgroup h2{font-size:.72rem;color:#92A0C0;margin:0 0 8px;font-weight:700;letter-spacing:.05em}
+  .navlist{list-style:none;margin:0 0 6px;padding:0}
+  .navlist a{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:#C3CADE;padding:7px 10px;border-radius:var(--radius-s);font-size:.92rem;border-left:2px solid transparent}
+  .navlist a .num{color:#92A0C0;font-size:.8em;font-weight:700;font-variant-numeric:tabular-nums}
+  .navlist a:hover{background:rgba(255,255,255,.06);color:#fff}
+  .navlist a.active{background:rgba(166,103,46,.3);color:#fff;border-left:2px solid var(--accent)}
+  .nav-toggle{display:none;position:fixed;top:14px;left:14px;z-index:50;width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;border:none;font-size:1.1rem;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+
+  .toolbar{
+    position:sticky;top:0;z-index:10;
+    display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;
+    background:var(--bg);padding:10px 0 16px;margin-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  .search-wrap{position:relative;flex:1 1 240px;max-width:340px}
+  .search-wrap input{
+    width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius-s);
+    font-size:.9rem;background:var(--bg-panel);color:var(--ink);font-family:var(--sans);
+  }
+  .search-wrap input:focus{outline:none;border-color:var(--accent)}
+  .search-results{
+    display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-s);
+    box-shadow:0 8px 22px rgba(0,0,0,.14);max-height:260px;overflow-y:auto;z-index:20;
+  }
+  .search-results.show{display:block}
+  .sr-item{padding:9px 12px;font-size:.88rem;cursor:pointer;border-bottom:1px solid var(--line);color:var(--ink)}
+  .sr-item:last-child{border-bottom:none}
+  .sr-item:hover{background:var(--gold-soft)}
+  .sr-empty{padding:10px 12px;font-size:.85rem;color:var(--ink-soft)}
+  .tool-btns{display:flex;gap:6px}
+  .tool-btns button{
+    width:38px;height:38px;border-radius:var(--radius-s);border:1px solid var(--line);
+    background:var(--bg-panel);color:var(--ink);font-size:1.05rem;cursor:pointer;
+  }
+  .tool-btns button:hover{border-color:var(--accent);color:var(--accent-deep)}
+  .tool-btns button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .tool-btns button:disabled{opacity:.35;cursor:not-allowed}
+
+  .content{flex:1;min-width:0;padding:24px 48px 100px}
+  .panel{display:none;max-width:var(--maxw);margin:0 auto;animation:fade .35s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+  .eyebrow{font-size:.85rem;color:var(--accent-deep);margin:0 0 6px;font-weight:700}
+  h2.title{font-size:2.1rem;font-weight:800;margin:0 0 18px;line-height:1.15;color:var(--ink);letter-spacing:-.01em}
+  h3{font-size:1.3rem;margin:32px 0 10px;color:var(--ink);font-weight:800}
+  p{margin:0 0 15px;color:var(--ink-soft);max-width:66ch}
+  p.lede{font-size:1.12rem;color:var(--ink);max-width:60ch}
+  ul.plain,ol.plain{margin:0 0 15px;padding-left:22px;color:var(--ink-soft)}
+  ul.plain li,ol.plain li{margin-bottom:7px}
+  strong{color:var(--ink)}
+
+  .hero-visual{width:100%;max-width:210px;margin:0 auto 8px;display:block}
+
+  .card{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:20px 22px;margin:0 0 16px}
+  .card h4{margin:0 0 8px;font-size:1.05rem;color:var(--ink);font-weight:800}
+  .card p{margin:0;font-size:.95rem}
+
+  .exercise{background:var(--gold-soft);border:1px solid var(--gold);border-radius:var(--radius-m);padding:18px 20px;margin:22px 0}
+  .exercise .ex-label{font-size:.78rem;font-weight:800;color:var(--accent-deep);margin:0 0 8px;display:block}
+  .exercise ol,.exercise ul{margin:6px 0 0;padding-left:20px}
+  .exercise li{margin-bottom:6px;font-size:.94rem;color:var(--ink-soft)}
+  .exercise p{font-size:.94rem;margin:6px 0 0}
+  .exercise .blank{display:inline-block;min-width:2.4em;border-bottom:1.5px solid var(--accent-deep);text-align:center}
+
+  .timeline{border-left:2px solid var(--line);margin:24px 0 0;padding:0 0 0 22px}
+  .tl-item{position:relative;padding-bottom:26px}
+  .tl-item::before{content:"";position:absolute;left:-27px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  .tl-item .yr{color:var(--accent-deep);font-weight:800;font-size:1rem}
+  .tl-item p{margin:4px 0 0}
+
+  .numgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:210px;margin:0 auto 8px;background:var(--line)}
+  .numgrid div{background:var(--bg-panel);aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;color:var(--accent-deep);font-variant-numeric:tabular-nums}
+
+  .digit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+  .digit-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px;text-align:center}
+  .digit-card .d{font-size:1.8rem;font-weight:800;color:var(--accent-deep);font-variant-numeric:tabular-nums;line-height:1}
+  .digit-card .meaning{font-size:.78rem;color:var(--ink-soft);margin-top:4px}
+
+  .master-note{background:var(--gold-soft);border-left:3px solid var(--gold);border-radius:var(--radius-s);padding:12px 16px;margin:18px 0;font-size:.9rem;color:var(--ink)}
+
+  .grade-head{display:flex;align-items:center;gap:16px;margin-bottom:6px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .grade-badge{width:56px;height:56px;border-radius:var(--radius-s);flex:0 0 56px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums}
+  .grade-head .sub{font-size:.85rem;color:var(--accent-deep);font-weight:700;margin:0 0 2px}
+  .grade-head h2.title{margin:0}
+
+  .focus-row{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 6px}
+  .focus-item{flex:1 1 160px;background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px 14px}
+  .focus-item .lbl{font-size:.72rem;color:var(--accent-deep);font-weight:700;margin-bottom:4px}
+  .focus-item .val{font-size:.94rem;color:var(--ink)}
+
+  .formula{background:var(--ink);color:#F1E8D2;border-radius:var(--radius-s);padding:16px 18px;margin:16px 0;font-size:1.05rem;font-variant-numeric:tabular-nums}
+
+  .diagram-box{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:22px;margin:24px 0;text-align:center}
+  .diagram-box svg{max-width:100%;height:auto}
+
+  table.compare{width:100%;border-collapse:collapse;margin:18px 0 28px;font-size:.92rem}
+  table.compare th,table.compare td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.compare th{font-weight:800;color:var(--ink);border-bottom:2px solid var(--ink);font-size:.88rem}
+  table.compare td{color:var(--ink-soft)}
+  table.compare tr:last-child td{border-bottom:none}
+
+  dl.glossary{margin:0}
+  dl.glossary div{padding:14px 0;border-bottom:1px solid var(--line)}
+  dl.glossary dt{font-weight:800;color:var(--ink);font-size:1rem}
+  dl.glossary dd{margin:4px 0 0;color:var(--ink-soft);font-size:.94rem}
+
+  .note{background:var(--gold-soft);border-left:3px solid var(--gold);border-radius:var(--radius-s);padding:12px 16px;margin:18px 0;font-size:.9rem;color:var(--ink-soft)}
+
+  .journal-area{
+    width:100%;border:1px solid var(--line);border-radius:var(--radius-s);
+    padding:14px;font-family:var(--sans);font-size:.95rem;color:var(--ink);
+    background:var(--bg-panel);resize:vertical;line-height:1.55;
+  }
+  .journal-area:focus{outline:none;border-color:var(--accent)}
+  .journal-btns{display:flex;gap:10px;margin-top:12px}
+  .btn-ghost{background:transparent;color:var(--accent-deep);border:1px solid var(--accent-deep)}
+  .btn-ghost:hover{background:var(--gold-soft);color:var(--ink)}
+
+  #quizRoot .q{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:18px 20px;margin-bottom:14px}
+  #quizRoot .q p.qtext{font-weight:800;color:var(--ink);margin:0 0 12px;font-size:1rem}
+  #quizRoot .opts{display:flex;flex-direction:column;gap:8px}
+  #quizRoot label{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius-s);cursor:pointer;font-size:.94rem}
+  #quizRoot label:hover{border-color:var(--accent)}
+  #quizRoot input{margin-top:3px}
+  #quizRoot label.correct{border-color:var(--accent-deep);background:var(--gold-soft)}
+  #quizRoot label.wrong{border-color:#B85C4A;background:#F6E7E3}
+  .qz-explain{font-size:.85rem;color:var(--accent-deep);margin:10px 0 0;display:none}
+  .qz-explain.show{display:block}
+  #quizScore{font-size:1.3rem;margin:20px 0;padding:18px 22px;background:var(--ink);color:#fff;border-radius:var(--radius-m);display:none;font-weight:800}
+  #quizScore.show{display:block}
+  .btn{background:var(--accent-deep);color:#fff;border:none;padding:11px 22px;border-radius:var(--radius-s);font-size:.95rem;cursor:pointer;font-family:var(--sans);font-weight:700}
+  .btn:hover{background:var(--ink)}
+
+  footer.appfoot{max-width:var(--maxw);margin:50px auto 0;color:var(--ink-soft);font-size:.8rem}
+
+  @media (max-width:880px){
+    .sidebar{position:fixed;left:0;top:0;z-index:40;transform:translateX(-100%);transition:transform .25s ease;box-shadow:0 0 30px rgba(0,0,0,.3)}
+    .sidebar.open{transform:translateX(0)}
+    .nav-toggle{display:block}
+    .content{padding:70px 20px 80px}
+    h2.title{font-size:1.6rem}
+    .toolbar{padding-top:0}
+    .digit-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.panel{animation:none}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  @media print{
+    .sidebar,.nav-toggle,.toolbar,.btn,#quizReset{display:none !important}
+    .content{padding:0;background:#fff}
+    body{background:#fff}
+    .app{display:block}
+    .panel{display:block !important;max-width:100%;page-break-after:always;animation:none}
+    .panel:last-child{page-break-after:auto}
+  }
+
+  /* --- audit: accesibilitate, tipar, mobil --- */
+  [hidden]{display:none !important}
+  .visually-hidden{position:absolute !important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .skip-link{position:absolute;left:8px;top:-60px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:4px;border:2px solid #000}
+  .skip-link:focus{top:8px}
+  button.sr-item{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);font:inherit;font-size:.88rem;padding:11px 12px;cursor:pointer;color:var(--ink)}
+  button.sr-item:last-child{border-bottom:none}
+  h2.title:focus{outline:none}
+  .tool-btns button{font-family:var(--sans)}
+  .btn:focus-visible,.tool-btns button:focus-visible,.search-wrap input:focus-visible,.journal-area:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  .sidebar :focus-visible,.nav-toggle:focus-visible{outline-color:#fff}
+  .tablewrap{overflow-x:auto;margin:18px 0 28px}
+  .tablewrap table.compare{margin:0;min-width:520px}
+  .disclaimer{background:var(--note-bg);border:1px solid var(--note-line);border-left-width:4px;border-radius:var(--radius-s);padding:12px 16px;margin:18px 0;font-size:.92rem;color:var(--ink);max-width:66ch}
+  .disclaimer strong{color:var(--ink)}
+  .decision-note{font-size:.85rem;color:var(--ink-soft);border-top:1px dashed var(--line);margin-top:16px;padding-top:8px;max-width:66ch}
+  footer.appfoot p{font-size:.8rem;max-width:none;margin:0 0 6px}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+  .btn.btn-ghost{background:transparent;color:var(--ghost);border:1px solid var(--ghost)}
+  .btn.btn-ghost:hover{background:var(--note-bg);color:var(--ink)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  noscript .note{margin:16px}
+  @media (max-width:880px){
+    .sidebar{visibility:hidden;transition:transform .25s ease,visibility 0s linear .25s}
+    .sidebar.open{visibility:visible;transition-delay:0s}
+    .tool-btns button{width:44px;height:44px}
+    .navlist a{padding:12px 10px}
+    .nav-toggle{width:44px;height:44px}
+    .toolbar{gap:8px}
+    .content{overflow-x:hidden}
+  }
+  @media print{
+    .panel{display:none !important}
+    .panel.active{display:block !important;page-break-after:auto}
+    .sr-item,.search-results,.visually-hidden,.skip-link,.draw-box button,#calcForm{display:none !important}
+    .tablewrap{overflow:visible}
+    .tablewrap table.compare{min-width:0}
+    footer.appfoot{display:block;color:#000}
+    a{color:#000}
+  }
+  .calc-form{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:18px 20px;margin:14px 0}
+  .calc-form label{display:flex;flex-direction:column;gap:4px;font-size:.88rem;font-weight:700;color:var(--ink)}
+  .calc-form label.wide{grid-column:1/-1}
+  .calc-form input{padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius-s);font-size:1rem;font-family:var(--sans);background:#fff;color:var(--ink);min-height:44px}
+  .calc-form .btn{grid-column:1/-1;justify-self:start}
+  .calc-err{color:#8A2A1B;font-weight:700;margin:8px 0}
+  table.calc-out{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:var(--bg-panel)}
+  table.calc-out th,table.calc-out td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.calc-out th{font-weight:800;color:var(--ink)}
+  table.calc-out td.val{font-weight:800;color:var(--accent-deep);font-size:1.25rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+  table.calc-out td{color:var(--ink-soft)}
+  .calc-detail{font-size:.88rem;color:var(--ink-soft);margin:6px 0;font-variant-numeric:tabular-nums;word-break:break-word}
+  @media (max-width:560px){.calc-form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Sari la conținut</a>
+<button class="nav-toggle" id="navToggle" aria-label="Deschide meniul" aria-expanded="false" aria-controls="sidebar">☰</button>
+<div id="liveStatus" class="visually-hidden" role="status" aria-live="polite"></div>
+<div class="app">
+  <nav class="sidebar" id="sidebar" aria-label="Meniu principal">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="14" y="14" width="24" height="24" fill="none" stroke="#A6672E" stroke-width="2"/>
+        <rect x="38" y="14" width="24" height="24" fill="none" stroke="#A6672E" stroke-width="2"/>
+        <rect x="62" y="14" width="24" height="24" fill="#A6672E"/>
+        <rect x="14" y="38" width="24" height="24" fill="#A6672E"/>
+        <rect x="38" y="38" width="24" height="24" fill="none" stroke="#A6672E" stroke-width="2"/>
+        <rect x="62" y="38" width="24" height="24" fill="none" stroke="#A6672E" stroke-width="2"/>
+        <rect x="14" y="62" width="24" height="24" fill="none" stroke="#A6672E" stroke-width="2"/>
+        <rect x="38" y="62" width="24" height="24" fill="#A6672E"/>
+        <rect x="62" y="62" width="24" height="24" fill="none" stroke="#A6672E" stroke-width="2"/>
+      </svg>
+      <h1>Numerologie</h1>
+      <p>Curs interactiv despre semnificația numerelor și sistemele numerologice</p>
+    </div>
+    <div class="navgroup">
+      <h2>Bazele</h2>
+      <ul class="navlist">
+        <li><a href="#intro" data-target="intro" class="active" aria-current="page"><span class="num">·</span> Introducere</a></li>
+        <li><a href="#istoric" data-target="istoric"><span class="num">·</span> Istoric</a></li>
+      </ul>
+    </div>
+    <div class="navgroup">
+      <h2>Cele patru niveluri</h2>
+      <ul class="navlist">
+        <li><a href="#n1" data-target="n1"><span class="num">1</span> Numere de bază</a></li>
+        <li><a href="#n2" data-target="n2"><span class="num">2</span> Numerologia numelui</a></li>
+        <li><a href="#n3" data-target="n3"><span class="num">3</span> Sisteme comparate</a></li>
+        <li><a href="#n4" data-target="n4"><span class="num">4</span> Cicluri și compatibilități</a></li>
+      </ul>
+    </div>
+    <div class="navgroup">
+      <h2>Practică &amp; context</h2>
+      <ul class="navlist">
+        <li><a href="#aplicatii" data-target="aplicatii"><span class="num">·</span> Aplicații practice</a></li>
+        <li><a href="#calculator" data-target="calculator"><span class="num">·</span> Calculator</a></li>
+        <li><a href="#comparativ" data-target="comparativ"><span class="num">·</span> Tradiții comparate</a></li>
+        <li><a href="#glosar" data-target="glosar"><span class="num">·</span> Glosar</a></li>
+        <li><a href="#jurnal" data-target="jurnal"><span class="num">·</span> Jurnal</a></li>
+        <li><a href="#quiz" data-target="quiz"><span class="num">·</span> Autoevaluare</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="content" id="main" tabindex="-1">
+    <noscript><div class="note">JavaScript este dezactivat: căutarea, jurnalul, testul și celelalte unelte interactive nu funcționează, dar tot conținutul cursului este afișat mai jos.</div></noscript>
+    <div class="toolbar">
+      <div class="search-wrap">
+        <input type="search" id="searchInput" placeholder="Caută în curs…" aria-label="Căutare în curs" autocomplete="off" spellcheck="false">
+        <div class="search-results" id="searchResults" aria-live="polite"></div>
+      </div>
+      <div class="tool-btns">
+        <button type="button" id="btnPrint" title="Printează secțiunea curentă / exportă PDF" aria-label="Printează secțiunea curentă">⎙</button>
+        <button type="button" id="btnShare" title="Distribuie linkul" aria-label="Distribuie linkul">⤴</button>
+        <button type="button" id="btnFullscreen" title="Ecran complet" aria-label="Ecran complet" aria-pressed="false">⛶</button>
+        <button type="button" id="btnWakeLock" title="Păstrează ecranul activ" aria-label="Păstrează ecranul activ" aria-pressed="false">◐</button>
+      </div>
+    </div>
+
+    <section id="intro" class="panel active">
+      <div class="numgrid" aria-hidden="true">
+        <div>4</div><div>9</div><div>2</div>
+        <div>3</div><div>5</div><div>7</div>
+        <div>8</div><div>1</div><div>6</div>
+      </div>
+      <p class="eyebrow">Curs interactiv</p>
+      <h2 class="title">Numerologie — limbajul ascuns al numerelor</h2>
+      <p class="lede">Numerologia pornește de la premisa că numerele care apar în numele și data nașterii unei persoane poartă o semnificație simbolică, decodabilă printr-un set de reguli de calcul transmise pe mai multe tradiții paralele — cea mai răspândită fiind cea pitagoreică.</p>
+      <p>Numerologia nu are o singură descendență istorică: cel puțin trei sisteme majore — <strong>pitagoreic</strong>, <strong>caldeean</strong> și <strong>kabbalistic</strong> — coexistă, cu reguli de calcul diferite și, uneori, concluzii diferite pentru aceleași date de intrare. Aplicația parcurge istoricul acestor tradiții, patru niveluri de curs construite pe sistemul pitagoreic modern (cel mai practicat astăzi), exerciții de calcul pentru fiecare nivel, o diagramă animată a procesului de reducere, o comparație directă între sisteme, un jurnal personal și un test de autoevaluare.</p>
+      <div class="disclaimer"><strong>Despre ce este (și ce nu este) acest curs.</strong> Numerologia este o tradiție simbolică și culturală, folosită ca joc de reflecție și divertisment. Nu există dovezi științifice că numerele din nume sau din data nașterii determină caracterul, relațiile sau destinul cuiva. Conținutul este educațional și nu înlocuiește sfatul unui medic, psiholog, jurist sau consilier financiar; nu lua decizii medicale, legale, financiare sau despre relații și angajări pe baza unui calcul numerologic.</div>
+    </section>
+
+    <section id="istoric" class="panel">
+      <p class="eyebrow">Trei rădăcini paralele</p>
+      <h2 class="title">Istoric</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="yr">c. 570–495 î.Hr. · Pitagora (după tradiție)</div>
+          <p>Filosoful și matematicianul grec este asociat de tradiție cu ideea că numerele exprimă o structură esențială a realității — „totul este număr”. Școala pitagoreică a atribuit numerelor calități simbolice; numele „pitagoreic” al sistemului modern de corespondență litere–cifre este însă o denumire tradițională — nu există dovezi că Pitagora însuși ar fi folosit acest tabel de litere.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">„Babilonul antic” · sistemul caldeean (origine atribuită)</div>
+          <p>Considerat de mulți practicieni chiar mai vechi decât cel pitagoreic (originea babiloniană este o atribuire tradițională, nu un fapt istoric documentat), sistemul caldeean atribuie literelor valori numerice bazate pe vibrația sunetului, nu pe ordinea alfabetică — motiv pentru care produce, adesea, rezultate diferite de cele pitagoreice pentru același nume.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">tradiția kabbalistică</div>
+          <p>Gematria, parte a studiului cabalistic evreiesc, atribuie valori numerice literelor alfabetului ebraic, folosite pentru a descoperi legături ascunse între cuvinte și concepte cu aceeași valoare numerică.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">începutul sec. XX–1931 · reviriment modern</div>
+          <p>În Statele Unite, autoare precum Mrs. L. Dow Balliett și, ulterior, Florence Campbell (autoarea volumului <em>Your Days Are Numbered</em>, 1931) sunt asociate, în prezentările uzuale, cu sistematizarea unei forme accesibile, simplificate, a numerologiei pitagoreice — forma cea mai răspândită astăzi în cărți, cursuri online și aplicații.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">România · practică contemporană</div>
+          <p>Numerologia este prezentă în spațiul public românesc prin diverși practicieni și cursuri independente. Printre numele asociate public cu numerologia se numără Mihai Voropchievici și Cristian Terran; menționarea lor este informativă, se bazează pe prezentările lor publice (neverificate aici) și nu constituie o recomandare sau o evaluare a metodelor lor.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="n1" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">1</div>
+        <div><p class="sub">Fundamentele calculului</p><h2 class="title">Numere de bază</h2></div>
+      </div>
+      <p class="lede">Primul nivel introduce Numărul Drumului Vieții — cel mai folosit calcul numerologic — și semnificațiile atribuite fiecărei cifre de la 1 la 9.</p>
+      <div class="focus-row">
+        <div class="focus-item"><div class="lbl">Sursă</div><div class="val">Data nașterii</div></div>
+        <div class="focus-item"><div class="lbl">Rezultat</div><div class="val">O cifră, 1–9, sau număr maestru</div></div>
+      </div>
+      <h3>Calculul Numărului Drumului Vieții</h3>
+      <p>Se însumează toate cifrele datei nașterii, apoi se reduce succesiv suma la o singură cifră, adunând din nou cifrele rezultatului până rămâne un singur număr (sau un număr maestru, vezi mai jos). Atenție: există variante de calcul (de exemplu, reducerea separată a zilei, a lunii și a anului, apoi adunarea lor) care pot da rezultate diferite pentru aceleași date — nu există o convenție unică.</p>
+      <div class="formula">Exemplu: 17.05.1990 → 1+7+0+5+1+9+9+0 = 32 → 3+2 = 5<br>Numărul Drumului Vieții: <strong>5</strong></div>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 460 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama procesului de reducere numerologică">
+          <g font-family="Georgia, serif" font-weight="800" font-size="20" fill="#1E2A44" text-anchor="middle">
+            <g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="0s" fill="freeze"/>
+              <rect x="10" y="55" width="130" height="50" rx="6" fill="#F1E8D2" stroke="#B08D3D" stroke-width="1.5"/>
+              <text x="75" y="86">1 7 0 5 1 9 9 0</text>
+            </g>
+            <g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="1s" fill="freeze"/>
+              <text x="175" y="86" font-size="24" text-anchor="middle">→</text>
+            </g>
+            <g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="1.6s" fill="freeze"/>
+              <rect x="205" y="55" width="70" height="50" rx="6" fill="#F1E8D2" stroke="#B08D3D" stroke-width="1.5"/>
+              <text x="240" y="86">32</text>
+            </g>
+            <g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="2.4s" fill="freeze"/>
+              <text x="308" y="86" font-size="24" text-anchor="middle">→</text>
+            </g>
+            <g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="3s" fill="freeze"/>
+              <circle cx="375" cy="80" r="38" fill="#A6672E"/>
+              <text x="375" y="88" font-size="28" fill="#fff">5</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <h3>Semnificațiile cifrelor 1–9</h3>
+      <div class="digit-grid">
+        <div class="digit-card"><div class="d">1</div><div class="meaning">Inițiativă, independență</div></div>
+        <div class="digit-card"><div class="d">2</div><div class="meaning">Cooperare, sensibilitate</div></div>
+        <div class="digit-card"><div class="d">3</div><div class="meaning">Exprimare, creativitate</div></div>
+        <div class="digit-card"><div class="d">4</div><div class="meaning">Structură, disciplină</div></div>
+        <div class="digit-card"><div class="d">5</div><div class="meaning">Libertate, schimbare</div></div>
+        <div class="digit-card"><div class="d">6</div><div class="meaning">Responsabilitate, grijă</div></div>
+        <div class="digit-card"><div class="d">7</div><div class="meaning">Introspecție, analiză</div></div>
+        <div class="digit-card"><div class="d">8</div><div class="meaning">Ambiție, putere materială</div></div>
+        <div class="digit-card"><div class="d">9</div><div class="meaning">Compasiune, finalizare</div></div>
+      </div>
+      <div class="master-note"><strong>Numere maestre — 11, 22, 33.</strong> Când suma intermediară ajunge la 11, 22 sau 33, ea nu se mai reduce: sunt considerate „numere maestre”, cu un potențial amplificat, dar și provocări proporțional mai mari.</div>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu practic — calculează-ți propriul număr</span>
+        <p>Scrie data ta de naștere (zi, lună, an) cifră cu cifră, apoi adună-le pe toate: <span class="blank">&nbsp;</span> + <span class="blank">&nbsp;</span> + <span class="blank">&nbsp;</span> + … = <span class="blank">&nbsp;</span>. Dacă rezultatul are mai mult de o cifră, adună din nou cifrele lui, până rămâi cu un singur număr (sau cu 11/22/33). Notează rezultatul și compară-l cu semnificația din tabelul de mai sus — ți se potrivește descrierea?</p>
+      </div>
+    </section>
+
+    <section id="n2" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">2</div>
+        <div><p class="sub">Litere convertite în cifre</p><h2 class="title">Numerologia numelui</h2></div>
+      </div>
+      <p class="lede">Al doilea nivel aplică aceeași logică de reducere asupra literelor numelui, folosind corespondența pitagoreică literă–cifră.</p>
+      <div class="formula">A,J,S=1 · B,K,T=2 · C,L,U=3 · D,M,V=4 · E,N,W=5 · F,O,X=6 · G,P,Y=7 · H,Q,Z=8 · I,R=9</div>
+      <p>Convenții folosite de acest curs și de calculator: vocale = A, E, I, O, U (Y este tratat ca și consoană); literele românești cu diacritice se calculează ca litera de bază (ă, â → A; î → I; ș → S; ț → T). Alte surse pot trata Y sau diacriticele altfel.</p>
+      <h3>Trei numere derivate din nume</h3>
+      <ul class="plain">
+        <li><strong>Numărul Expresiei (Destinului)</strong> — din toate literele numelui complet; arată talentele și direcția naturală.</li>
+        <li><strong>Numărul Dorinței Interioare (Sufletului)</strong> — doar din vocale; arată motivațiile și dorințele profunde, adesea neexprimate.</li>
+        <li><strong>Numărul Personalității</strong> — doar din consoane; arată imaginea proiectată către ceilalți, prima impresie.</li>
+      </ul>
+      <p>Cele trei numere sunt adesea diferite între ele — iar tensiunea sau armonia dintre ele (de exemplu, între dorința interioară și imaginea proiectată) este ea însăși un subiect de interpretare în numerologia numelui.</p>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu practic — analiza numelui tău</span>
+        <ol class="plain">
+          <li>Scrie-ți prenumele cu majuscule și convertește fiecare literă în cifră, folosind tabelul de mai sus.</li>
+          <li>Separă vocalele (A, E, I, O, U; ă și â = A, î = I) de consoane (inclusiv Y) și adună fiecare grup separat.</li>
+          <li>Redu fiecare sumă la o singură cifră (sau la un număr maestru) — acestea sunt Numărul Dorinței Interioare (din vocale) și o parte din Numărul Personalității (din consoane).</li>
+          <li>Adună toate cifrele numelui complet pentru Numărul Expresiei.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="n3" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">3</div>
+        <div><p class="sub">Dincolo de sistemul pitagoreic</p><h2 class="title">Sisteme comparate</h2></div>
+      </div>
+      <p class="lede">Al treilea nivel confruntă practicianul cu diferențele reale dintre tradiții — utile pentru a înțelege de ce același nume poate produce rezultate diferite în funcție de sistem.</p>
+      <h3>Caldeean vs. pitagoreic</h3>
+      <p>Sistemul caldeean folosește o corespondență literă–cifră diferită (bazată pe sunet, nu pe poziția alfabetică), nu atribuie nicio literă cifrei 9 — considerată sacră — și tratează numerele compuse (de exemplu 23, înainte de reducerea la 5) ca purtând o semnificație proprie, separată de cifra finală. Practicanții caldeeni consideră sistemul lor mai vechi și mai apropiat de „vibrația” reală a sunetelor.</p>
+      <h3>Kabbalah / gematria</h3>
+      <p>Gematria nu urmărește neapărat un „număr de bază” unic, ci compară valorile numerice ale unor cuvinte sau nume întregi pentru a identifica echivalențe și legături ascunse — o logică diferită de reducerea progresivă folosită de sistemele pitagoreic și caldeean.</p>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu practic — compară două sisteme</span>
+        <p>Ia un nume scurt (al tău sau al unei persoane apropiate) și calculează-i valoarea numerică o dată cu tabelul pitagoreic din secțiunea anterioară. Caută apoi online corespondența caldeeană (litere→cifre 1–8) și recalculează același nume. Obții aceeași cifră finală? Dacă nu, care crezi că explică mai bine „senzația” pe care ți-o dă acel nume?</p>
+      </div>
+    </section>
+
+    <section id="n4" class="panel">
+      <div class="grade-head">
+        <div class="grade-badge">4</div>
+        <div><p class="sub">Aplicații temporale și relaționale</p><h2 class="title">Cicluri și compatibilități</h2></div>
+      </div>
+      <p class="lede">Ultimul nivel extinde calculul de la o „fotografie” statică (data nașterii, numele) la cicluri care se schimbă de la an la an și la interacțiunea dintre numerele a două persoane.</p>
+      <h3>Anul, luna și ziua personală</h3>
+      <p>Prin însumarea datei nașterii (zi și lună) cu anul calendaristic curent, se obține <strong>Anul Personal</strong> — o cifră 1–9 care se repetă ciclic la fiecare nouă ani și care, în interpretarea numerologică, marchează teme diferite pentru perioada respectivă (început, consolidare, schimbare etc.).</p>
+      <h3>Compatibilitate numerologică</h3>
+      <p>Compară Numărul Drumului Vieții a două persoane pentru a evalua zone de afinitate și de tensiune — folosit frecvent, deși informal, în context relațional. Este un joc simbolic: nu are valoare predictivă și nu trebuie folosit pentru a decide asupra unei relații, a unei colaborări sau a unei angajări.</p>
+      <h3>Numerologie karmică</h3>
+      <p>Ramură care identifică „lecții karmice” din literele absente din numele complet al unei persoane (fiecare cifră 1–9 corespunzând unei lecții) și „datorii karmice” asociate anumitor numere compuse (13, 14, 16, 19) apărute în calculele de bază — temă centrală în cursurile de numerologie karmică. Sunt concepte din tradiția numerologică, fără verificare empirică.</p>
+      <div class="exercise">
+        <span class="ex-label">Exercițiu practic — Anul Personal curent</span>
+        <p>Adună ziua și luna nașterii cu anul calendaristic curent (de exemplu, pentru 17 mai: 1+7+0+5 + cifrele anului curent), reducând la o singură cifră. Notează rezultatul și compară-l, peste câteva luni, cu temele reale trăite în această perioadă — exercițiul funcționează mai bine ca reflecție retrospectivă decât ca predicție.</p>
+      </div>
+    </section>
+
+    <section id="aplicatii" class="panel">
+      <p class="eyebrow">În practică</p>
+      <h2 class="title">Aplicații practice</h2>
+      <div class="card">
+        <h4>Calculează-ți propriul Număr al Drumului Vieții</h4>
+        <p>Scrie data nașterii cifră cu cifră, însumează totul, apoi redu succesiv suma la o singură cifră — oprindu-te dacă rezultatul intermediar este 11, 22 sau 33.</p>
+      </div>
+      <div class="card">
+        <h4>Analiza numelui</h4>
+        <p>Convertește literele numelui folosind tabelul pitagoreic, separă vocalele de consoane și calculează cele trei numere derivate — Expresie, Dorință Interioară, Personalitate.</p>
+      </div>
+      <div class="card">
+        <h4>Jurnal anual</h4>
+        <p>Notează Anul Personal la începutul fiecărui an calendaristic și revizitează notițele la final, pentru a observa dacă temele descrise s-au potrivit cu experiența reală — vezi secțiunea „Jurnal” pentru un spațiu dedicat.</p>
+      </div>
+    </section>
+
+    <section id="calculator" class="panel">
+      <p class="eyebrow">Unealtă</p>
+      <h2 class="title">Calculator</h2>
+      <p>Calculează pe loc, în browser, numerele descrise în curs. Numele și data nu sunt trimise nicăieri și nu sunt salvate. Rezultatele sunt convenții tradiționale de calcul, nu măsurători.</p>
+      <form id="calcForm" class="calc-form" novalidate>
+        <label class="wide">Nume complet (opțional)
+          <input type="text" id="calcName" autocomplete="off" maxlength="120" spellcheck="false" placeholder="ex. Ioana Ștefănescu-Țurcanu">
+        </label>
+        <label>Data nașterii (opțional)
+          <input type="date" id="calcDate" autocomplete="off" min="1000-01-01" max="2999-12-31">
+        </label>
+        <label>Anul pentru „Anul Personal”
+          <input type="number" id="calcYear" inputmode="numeric" min="1000" max="2999" step="1">
+        </label>
+        <button type="submit" class="btn">Calculează</button>
+      </form>
+      <div id="calcOut" aria-live="polite"></div>
+      <div class="note">Convenții: suma cifrelor datei este redusă până la o cifră, cu oprire la 11, 22, 33 (numere maestre); numerele din nume se obțin din suma tuturor literelor (Expresie), doar a vocalelor A E I O U (Dorință Interioară) și doar a consoanelor, inclusiv Y (Personalitate). Diacriticele românești se calculează ca litera de bază. Anul Personal se reduce la 1–9. Alte surse folosesc reguli diferite.</div>
+    </section>
+
+    <section id="comparativ" class="panel">
+      <p class="eyebrow">Anexă comparativă</p>
+      <h2 class="title">Tradiții comparate</h2>
+      <div class="tablewrap" tabindex="0" role="region" aria-label="Tabel comparativ (derulabil)"><table class="compare">
+        <thead><tr><th>Sistem</th><th>Origine</th><th>Trăsătură distinctivă</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pitagoreic</strong></td><td>Grecia antică, sistematizat modern în SUA (Balliett, Campbell, 1931)</td><td>Corespondență literă–cifră după ordinea alfabetică; cel mai practicat sistem astăzi</td></tr>
+          <tr><td><strong>Caldeean</strong></td><td>Atribuit Babilonului antic (neconfirmat istoric)</td><td>Corespondență bazată pe sunet; nu folosește cifra 9; păstrează numerele compuse ca semnificative</td></tr>
+          <tr><td><strong>Kabbalistic</strong></td><td>Tradiția mistică evreiască</td><td>Gematria — compară valori numerice ale cuvintelor întregi, nu reduce la o cifră unică</td></tr>
+          <tr><td><strong>Numerologie karmică</strong></td><td>Ramură modernă, aplicată pe sistemul pitagoreic</td><td>Accent pe lecții și datorii karmice deduse din literele absente și numerele compuse</td></tr>
+          <tr><td><strong>Practică în România</strong></td><td>Practicieni și cursuri independente contemporane (neevaluate aici)</td><td>Adesea combinată cu alte practici ezoterice; cursuri organizate de diverși autori</td></tr>
+        </tbody>
+      </table></div>
+      <div class="note">Sistemele nu sunt „corecte” sau „greșite” unele față de altele — sunt convenții de calcul diferite, dezvoltate în contexte culturale distincte, care produc adesea rezultate diferite pentru aceleași date de intrare.</div>
+    </section>
+
+    <section id="glosar" class="panel">
+      <p class="eyebrow">Referință</p>
+      <h2 class="title">Glosar</h2>
+      <dl class="glossary">
+        <div><dt>Numărul Drumului Vieții</dt><dd>Cifra rezultată din reducerea sumei cifrelor datei nașterii; cel mai folosit calcul numerologic.</dd></div>
+        <div><dt>Număr maestru</dt><dd>11, 22 sau 33 — numere care nu se reduc mai departe, considerate purtătoare de potențial amplificat.</dd></div>
+        <div><dt>Numărul Expresiei</dt><dd>Rezultat din toate literele numelui complet; arată talentele și direcția naturală.</dd></div>
+        <div><dt>Numărul Dorinței Interioare</dt><dd>Rezultat doar din vocalele numelui; arată motivațiile profunde.</dd></div>
+        <div><dt>Numărul Personalității</dt><dd>Rezultat doar din consoanele numelui; arată imaginea proiectată către ceilalți.</dd></div>
+        <div><dt>Anul Personal</dt><dd>Cifră ciclică (1–9) obținută din data nașterii combinată cu anul curent, repetată la fiecare nouă ani.</dd></div>
+        <div><dt>Sistem caldeean</dt><dd>Tradiție numerologică atribuită Babilonului antic (fără confirmare istorică), cu o corespondență literă–cifră bazată pe sunet.</dd></div>
+        <div><dt>Gematria</dt><dd>Practică kabbalistică de atribuire a valorilor numerice literelor alfabetului ebraic.</dd></div>
+        <div><dt>Număr compus</dt><dd>Numărul intermediar (de exemplu 23, înainte de reducere la 5), păstrat ca semnificativ mai ales în sistemul caldeean.</dd></div>
+        <div><dt>Datorie karmică</dt><dd>În numerologia karmică, provocare asociată numerelor compuse 13, 14, 16 sau 19 apărute în calculele de bază.</dd></div>
+        <div><dt>Lecție karmică</dt><dd>Temă de dezvoltare personală dedusă din cifrele absente din numele complet al unei persoane.</dd></div>
+      </dl>
+    </section>
+
+    <section id="jurnal" class="panel">
+      <p class="eyebrow">Notițe personale</p>
+      <h2 class="title">Jurnal numerologic</h2>
+      <p>Notează calculele făcute, Anul Personal curent și observațiile pe măsură ce anul avansează. Notițele există doar în această sesiune a browserului: descarcă-le înainte de a închide pagina, altfel se pierd la reîncărcare — aplicația nu folosește stocare persistentă.</p>
+      <textarea id="journalText" class="journal-area" rows="14" aria-label="Jurnal" placeholder="Ex: Anul Personal 2026 = 5 — temă de schimbare; în martie am schimbat locul de muncă…"></textarea>
+      <div class="journal-btns">
+        <button type="button" class="btn" id="journalDownload">Descarcă (.txt)</button>
+        <button type="button" class="btn btn-ghost" id="journalClear">Golește</button>
+      </div>
+    </section>
+
+    <section id="quiz" class="panel">
+      <p class="eyebrow">Verifică-ți cunoștințele</p>
+      <h2 class="title">Autoevaluare</h2>
+      <p>Zece întrebări despre istoricul, calculele și sistemele numerologice.</p>
+      <div id="quizRoot"></div>
+      <div id="quizScore" role="status" aria-live="polite"></div>
+      <button type="button" class="btn" id="quizReset">Reia testul</button>
+    </section>
+
+    <footer class="appfoot"><p><strong>Tradiție și divertisment, nu știință.</strong> Numerologia nu are validare științifică ca metodă de predicție sau de evaluare a persoanelor; nu înlocuiește sfatul medical, psihologic, juridic sau financiar.</p><p>Aplicație offline, fără cont, fără telemetrie și fără dependențe externe · parte din portofoliul de aplicații single-file HTML</p></footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  function $(id){ return document.getElementById(id); }
+  var links = Array.prototype.slice.call(document.querySelectorAll(".navlist a"));
+  var panels = Array.prototype.slice.call(document.querySelectorAll(".panel"));
+  var sidebar = $("sidebar"), toggle = $("navToggle"), liveStatus = $("liveStatus");
+  var reduceMotion = false;
+  try { reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); } catch(e){}
+
+  function say(msg){
+    liveStatus.textContent = "";
+    setTimeout(function(){ liveStatus.textContent = msg; }, 40);
+  }
+  function randInt(n){
+    var c = window.crypto || window.msCrypto;
+    if(c && c.getRandomValues){
+      var a = new Uint32Array(1), lim = Math.floor(4294967296 / n) * n;
+      do { c.getRandomValues(a); } while(a[0] >= lim);
+      return a[0] % n;
+    }
+    return Math.floor(Math.random() * n);
+  }
+  function shuffle(arr){
+    for(var i = arr.length - 1; i > 0; i--){
+      var j = randInt(i + 1), t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+
+  /* ---- navigare + deep link (#id) ---- */
+  function validId(id){ return panels.some(function(p){ return p.id === id; }); }
+  function closeNav(){
+    sidebar.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Deschide meniul");
+  }
+  function activate(target, opts){
+    opts = opts || {};
+    if(!validId(target)) target = "intro";
+    panels.forEach(function(p){ p.classList.toggle("active", p.id === target); });
+    links.forEach(function(l){
+      var on = l.getAttribute("data-target") === target;
+      l.classList.toggle("active", on);
+      if(on) l.setAttribute("aria-current", "page"); else l.removeAttribute("aria-current");
+    });
+    closeNav();
+    window.scrollTo(0, 0);
+    var h = document.querySelector("#" + target + " h2.title");
+    if(opts.focus && h){ h.setAttribute("tabindex", "-1"); h.focus({preventScroll:true}); }
+    if(opts.push && location.hash !== "#" + target){
+      try { history.pushState(null, "", "#" + target); } catch(e){ try { location.hash = target; } catch(e2){} }
+    }
+  }
+  function fromHash(){
+    var id = "";
+    try { id = decodeURIComponent(location.hash.replace(/^#/, "")); } catch(e){}
+    activate(validId(id) ? id : "intro", {focus:false});
+  }
+  links.forEach(function(l){
+    l.addEventListener("click", function(e){
+      e.preventDefault();
+      activate(l.getAttribute("data-target"), {push:true, focus:true});
+    });
+  });
+  window.addEventListener("hashchange", fromHash);
+  window.addEventListener("popstate", fromHash);
+
+  toggle.addEventListener("click", function(){
+    var open = sidebar.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Închide meniul" : "Deschide meniul");
+    if(open){ var a = sidebar.querySelector("a.active") || sidebar.querySelector("a"); if(a) a.focus(); }
+  });
+  document.addEventListener("click", function(e){
+    if(sidebar.classList.contains("open") && !sidebar.contains(e.target) && e.target !== toggle) closeNav();
+  });
+
+  /* ---- căutare (fără diacritice) ---- */
+  function normalize(s){ return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+  var searchInput = $("searchInput"), searchResults = $("searchResults");
+  function closeSearch(){ searchResults.classList.remove("show"); }
+  function pick(id){
+    activate(id, {push:true, focus:true});
+    searchInput.value = "";
+    closeSearch();
+  }
+  function runSearch(){
+    var q = normalize(searchInput.value.trim());
+    searchResults.textContent = "";
+    if(q.length < 2){ closeSearch(); return; }
+    var matches = [];
+    panels.forEach(function(p){
+      if(normalize(p.textContent).indexOf(q) !== -1){
+        var t = p.querySelector("h2.title");
+        matches.push({id:p.id, title: t ? t.textContent : p.id});
+      }
+    });
+    if(!matches.length){
+      var empty = document.createElement("div");
+      empty.className = "sr-empty";
+      empty.textContent = "Niciun rezultat";
+      searchResults.appendChild(empty);
+    } else {
+      matches.slice(0, 8).forEach(function(m){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "sr-item";
+        b.textContent = m.title;
+        b.addEventListener("click", function(){ pick(m.id); });
+        b.addEventListener("keydown", function(e){
+          if(e.key === "ArrowDown" && b.nextElementSibling){ e.preventDefault(); b.nextElementSibling.focus(); }
+          else if(e.key === "ArrowUp"){ e.preventDefault(); (b.previousElementSibling || searchInput).focus(); }
+          else if(e.key === "Escape"){ closeSearch(); searchInput.focus(); }
+        });
+        searchResults.appendChild(b);
+      });
+    }
+    searchResults.classList.add("show");
+  }
+  searchInput.addEventListener("input", runSearch);
+  searchInput.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){ closeSearch(); }
+    else if(e.key === "ArrowDown"){ var f = searchResults.querySelector(".sr-item"); if(f){ e.preventDefault(); f.focus(); } }
+    else if(e.key === "Enter"){ var g = searchResults.querySelector(".sr-item"); if(g){ e.preventDefault(); g.click(); } }
+  });
+  document.addEventListener("click", function(e){
+    if(e.target !== searchInput && !searchResults.contains(e.target)) closeSearch();
+  });
+
+  /* ---- unelte: tipărire, distribuire, ecran complet, wake lock ---- */
+  $("btnPrint").addEventListener("click", function(){ window.print(); });
+
+  var btnShare = $("btnShare");
+  var metaDesc = document.querySelector('meta[name="description"]');
+  function flashShare(ok){
+    var old = btnShare.textContent;
+    btnShare.textContent = ok ? "✓" : "!";
+    setTimeout(function(){ btnShare.textContent = old; }, 1400);
+    say(ok ? "Linkul a fost copiat." : "Nu s-a putut copia linkul.");
+  }
+  function copyShare(){
+    var text = document.title + " — " + location.href;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flashShare(true); }, function(){ flashShare(false); });
+    } else {
+      try { window.prompt("Copiază linkul:", text); } catch(e){ flashShare(false); }
+    }
+  }
+  btnShare.addEventListener("click", function(){
+    var data = {title: document.title, text: metaDesc ? metaDesc.content : document.title, url: location.href};
+    if(navigator.share){
+      navigator.share(data).catch(function(err){ if(!err || err.name !== "AbortError") copyShare(); });
+    } else { copyShare(); }
+  });
+
+  var btnFs = $("btnFullscreen");
+  function syncFs(){
+    var on = !!(document.fullscreenElement);
+    btnFs.classList.toggle("active", on);
+    btnFs.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+  if(!document.documentElement.requestFullscreen){
+    btnFs.disabled = true;
+    btnFs.title = "Ecran complet indisponibil în acest browser";
+  } else {
+    btnFs.addEventListener("click", function(){
+      if(!document.fullscreenElement){
+        document.documentElement.requestFullscreen().catch(function(){ say("Ecranul complet a fost refuzat de browser."); });
+      } else if(document.exitFullscreen){ document.exitFullscreen(); }
+    });
+    document.addEventListener("fullscreenchange", syncFs);
+  }
+
+  var btnWake = $("btnWakeLock"), wakeLock = null, wakeWanted = false;
+  function syncWake(){
+    btnWake.classList.toggle("active", wakeWanted);
+    btnWake.setAttribute("aria-pressed", wakeWanted ? "true" : "false");
+  }
+  function acquireWake(){
+    return navigator.wakeLock.request("screen").then(function(lock){
+      wakeLock = lock;
+      lock.addEventListener("release", function(){ if(wakeLock === lock) wakeLock = null; });
+    }).catch(function(){
+      wakeWanted = false; wakeLock = null; syncWake();
+      say("Nu s-a putut păstra ecranul activ.");
+    });
+  }
+  if(!("wakeLock" in navigator)){
+    btnWake.disabled = true;
+    btnWake.title = "Indisponibil în acest browser";
+  } else {
+    btnWake.addEventListener("click", function(){
+      if(wakeWanted){
+        wakeWanted = false;
+        if(wakeLock){ wakeLock.release().catch(function(){}); wakeLock = null; }
+        syncWake();
+      } else {
+        wakeWanted = true; syncWake(); acquireWake();
+      }
+    });
+    document.addEventListener("visibilitychange", function(){
+      if(document.visibilityState === "visible" && wakeWanted && !wakeLock) acquireWake();
+    });
+  }
+
+  /* ---- jurnal (doar în sesiune; descărcare ca .txt) ---- */
+  var journalText = $("journalText"), dirty = false;
+  journalText.addEventListener("input", function(){ dirty = journalText.value.length > 0; });
+  $("journalDownload").addEventListener("click", function(){
+    if(!journalText.value.trim()){ say("Jurnalul este gol."); return; }
+    try {
+      var blob = new Blob([journalText.value], {type:"text/plain;charset=utf-8"});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "jurnal-numerologie.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+      dirty = false;
+      say("Jurnalul a fost descărcat.");
+    } catch(e){ say("Descărcarea nu a reușit."); }
+  });
+  $("journalClear").addEventListener("click", function(){
+    if(!journalText.value) return;
+    if(confirm("Golești tot jurnalul? Această acțiune nu poate fi anulată.")){
+      journalText.value = ""; dirty = false;
+    }
+  });
+  window.addEventListener("beforeunload", function(e){
+    if(dirty){ e.preventDefault(); e.returnValue = ""; }
+  });
+
+  /* ---- animații SMIL: oprite la prefers-reduced-motion ---- */
+  if(reduceMotion){
+    Array.prototype.slice.call(document.querySelectorAll("svg animate")).forEach(function(an){
+      var p = an.parentNode;
+      if(p && p.getAttribute("opacity") === "0") p.setAttribute("opacity", "1");
+      p.removeChild(an);
+    });
+  }
+
+  /* ---- autoevaluare ---- */
+  var QUESTIONS = [
+    {q:"Cui îi atribuie tradiția ideea că „totul este număr”, la baza numerologiei occidentale?", opts:["Euclid","Pitagora","Ptolemeu","Arhimede"], correct:1, explain:"Tradiția îl asociază pe Pitagora cu ideea că numerele exprimă o structură esențială a realității (atribuire tradițională, nu o dovadă că el a creat sistemul modern)."},
+    {q:"Cărui spațiu cultural i se atribuie tradițional sistemul caldeean de numerologie?", opts:["Grecia antică","Babilonul antic","Egiptul antic","India antică"], correct:1, explain:"Sistemul caldeean este atribuit tradițional Babilonului antic; originea nu este confirmată istoric."},
+    {q:"Cum se numesc numerele 11, 22 și 33 în numerologie?", opts:["Numere compuse","Numere karmice","Numere maestre","Numere ciclice"], correct:2, explain:"Numerele maestre nu se mai reduc la o singură cifră, fiind considerate purtătoare de potențial amplificat."},
+    {q:"Ce se calculează folosind doar vocalele numelui?", opts:["Numărul Expresiei","Numărul Personalității","Numărul Dorinței Interioare","Anul Personal"], correct:2, explain:"Numărul Dorinței Interioare (Sufletului) se calculează exclusiv din vocalele numelui."},
+    {q:"Ce practică kabbalistică atribuie valori numerice literelor ebraice?", opts:["Gematria","Numerologia karmică","Sistemul caldeean","Anul Personal"], correct:0, explain:"Gematria este practica kabbalistică de atribuire a valorilor numerice literelor alfabetului ebraic."},
+    {q:"Care carte, publicată în 1931, este asociată cu sistematizarea numerologiei moderne în SUA?", opts:["Elemente de aritmetică școlară","Your Days Are Numbered","Dicționar de astrologie","Tratat de geometrie plană"], correct:1, explain:"Florence Campbell a publicat „Your Days Are Numbered” în 1931."},
+    {q:"Care numere compuse sunt asociate „datoriilor karmice” în numerologia karmică?", opts:["11, 22, 33, 44","13, 14, 16, 19","1, 2, 3, 4","7, 9, 11, 13"], correct:1, explain:"13, 14, 16 și 19 sunt numerele compuse asociate datoriilor karmice."},
+    {q:"Ce cifră nu este atribuită niciunei litere în sistemul caldeean?", opts:["1","5","9","4"], correct:2, fixed:true, explain:"Sistemul caldeean nu atribuie nicio literă cifrei 9, considerată sacră."},
+    {q:"Ce cifră are litera M în tabelul pitagoreic folosit în curs?", opts:["3","4","5","13"], correct:1, fixed:true, explain:"În tabel: D, M, V = 4."},
+    {q:"Ce reprezintă Numărul Drumului Vieții?", opts:["Suma redusă a cifrelor datei nașterii","Suma literelor numelui complet","Cifra anului curent","Numărul consoanelor din nume"], correct:0, explain:"Numărul Drumului Vieții se obține din reducerea succesivă a sumei cifrelor datei nașterii."}
+  ];
+  var root = $("quizRoot"), scoreBox = $("quizScore"), answered = {};
+  function renderQuiz(){
+    answered = {};
+    scoreBox.classList.remove("show");
+    scoreBox.textContent = "";
+    root.textContent = "";
+    QUESTIONS.forEach(function(item, qi){
+      var qDiv = document.createElement("div");
+      qDiv.className = "q";
+      qDiv.setAttribute("role", "group");
+      qDiv.setAttribute("aria-labelledby", "qt" + qi);
+      var qp = document.createElement("p");
+      qp.className = "qtext";
+      qp.id = "qt" + qi;
+      qp.textContent = (qi + 1) + ". " + item.q;
+      qDiv.appendChild(qp);
+      var optsDiv = document.createElement("div");
+      optsDiv.className = "opts";
+      var order = item.opts.map(function(_, i){ return i; });
+      if(!item.fixed) shuffle(order);
+      order.forEach(function(oi){
+        var label = document.createElement("label");
+        label.setAttribute("data-oi", oi);
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.name = "q" + qi;
+        input.value = oi;
+        label.appendChild(input);
+        var span = document.createElement("span");
+        span.textContent = item.opts[oi];
+        label.appendChild(span);
+        input.addEventListener("change", function(){ handleAnswer(qi, oi, qDiv); });
+        optsDiv.appendChild(label);
+      });
+      qDiv.appendChild(optsDiv);
+      var ex = document.createElement("p");
+      ex.className = "qz-explain";
+      ex.setAttribute("role", "status");
+      qDiv.appendChild(ex);
+      root.appendChild(qDiv);
+    });
+  }
+  function handleAnswer(qi, oi, qDiv){
+    if(answered[qi] !== undefined) return;
+    answered[qi] = oi;
+    var isCorrect = (oi === QUESTIONS[qi].correct);
+    try { if(navigator.vibrate && !reduceMotion){ navigator.vibrate(isCorrect ? 30 : [20,40,20]); } } catch(e){}
+    qDiv.querySelectorAll("label").forEach(function(l){
+      var v = +l.getAttribute("data-oi");
+      l.querySelector("input").disabled = true;
+      if(v === QUESTIONS[qi].correct) l.classList.add("correct");
+      else if(v === oi) l.classList.add("wrong");
+    });
+    var ex = qDiv.querySelector(".qz-explain");
+    ex.textContent = (isCorrect ? "Corect. " : "Greșit. ") + QUESTIONS[qi].explain;
+    ex.classList.add("show");
+    if(Object.keys(answered).length === QUESTIONS.length) showScore();
+  }
+  function showScore(){
+    var correct = 0;
+    Object.keys(answered).forEach(function(qi){ if(answered[qi] === QUESTIONS[qi].correct) correct++; });
+    scoreBox.textContent = "Scor: " + correct + " din " + QUESTIONS.length + " răspunsuri corecte.";
+    scoreBox.classList.add("show");
+  }
+  $("quizReset").addEventListener("click", function(){ renderQuiz(); window.scrollTo(0, 0); });
+  renderQuiz();
+
+
+  /* ---- calculator numerologic (local, fără stocare) ---- */
+  var MEANING = {1:"inițiativă, independență",2:"cooperare, sensibilitate",3:"exprimare, creativitate",4:"structură, disciplină",5:"libertate, schimbare",6:"responsabilitate, grijă",7:"introspecție, analiză",8:"ambiție, putere materială",9:"compasiune, finalizare"};
+  var EXTRA_MAP = {"ß":"SS","ø":"O","æ":"AE","œ":"OE","đ":"D","ð":"D","þ":"TH","ł":"L","ı":"I"};
+  var VOWELS = "AEIOU";
+  function digitSum(n){ var s = 0, t = String(Math.abs(n)); for(var i = 0; i < t.length; i++) s += t.charCodeAt(i) - 48; return s; }
+  function reduce(n, keepMaster){
+    while(n > 9 && !(keepMaster && (n === 11 || n === 22 || n === 33))) n = digitSum(n);
+    return n;
+  }
+  function letterValue(ch){ return ((ch.charCodeAt(0) - 65) % 9) + 1; }
+  function normName(raw){
+    var out = "", ignored = 0;
+    var lower = String(raw).toLowerCase();
+    for(var i = 0; i < lower.length; i++){
+      var c = lower.charAt(i), rep = EXTRA_MAP[c];
+      var base = rep ? rep : c.normalize("NFD").replace(/[̀-ͯ]/g, "");
+      base = base.toUpperCase();
+      for(var k = 0; k < base.length; k++){
+        var b = base.charAt(k);
+        if(b >= "A" && b <= "Z") out += b;
+        else if(!/[\s\-'’.]/.test(b)) ignored++;
+      }
+    }
+    return {letters: out, ignored: ignored};
+  }
+  function nameNumbers(raw){
+    var nn = normName(raw), all = 0, v = 0, c = 0, parts = [];
+    for(var i = 0; i < nn.letters.length; i++){
+      var ch = nn.letters.charAt(i), val = letterValue(ch);
+      all += val;
+      if(VOWELS.indexOf(ch) !== -1) v += val; else c += val;
+      parts.push(ch + "=" + val);
+    }
+    return {letters: nn.letters, ignored: nn.ignored, parts: parts, sumAll: all, sumV: v, sumC: c,
+            expression: reduce(all, true), soul: reduce(v, true), personality: reduce(c, true)};
+  }
+  function parseDate(str){
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(str) || /^(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})$/.exec(str);
+    if(!m) return null;
+    var y, mo, d;
+    if(m[1].length === 4){ y = +m[1]; mo = +m[2]; d = +m[3]; } else { d = +m[1]; mo = +m[2]; y = +m[3]; }
+    if(y < 1000 || y > 2999 || mo < 1 || mo > 12 || d < 1) return null;
+    var dim = new Date(Date.UTC(y, mo, 0)).getUTCDate();
+    if(d > dim) return null;
+    return {d: d, m: mo, y: y};
+  }
+  function lifePath(dt){
+    var total = digitSum(dt.d) + digitSum(dt.m) + digitSum(dt.y);
+    var alt = reduce(reduce(dt.d, true) + reduce(dt.m, true) + reduce(dt.y, true), true);
+    return {total: total, value: reduce(total, true), alt: alt};
+  }
+  function personalYear(dt, year){ return reduce(digitSum(dt.d) + digitSum(dt.m) + digitSum(year), false); }
+  function meaningOf(n){
+    var base = reduce(n, false);
+    return (n > 9 ? "număr maestru (" + n + " → " + base + "); " : "") + MEANING[base];
+  }
+
+  var calcForm = $("calcForm"), calcOut = $("calcOut"), calcYear = $("calcYear");
+  calcYear.value = new Date().getFullYear();
+  function el(tag, cls, text){ var e = document.createElement(tag); if(cls) e.className = cls; if(text !== undefined) e.textContent = text; return e; }
+  function row(tb, label, val, note){
+    var tr = el("tr"); tr.appendChild(el("th", "", label)); tr.appendChild(el("td", "val", String(val))); tr.appendChild(el("td", "", note));
+    tb.appendChild(tr);
+  }
+  calcForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    calcOut.textContent = "";
+    var rawName = $("calcName").value.trim(), rawDate = $("calcDate").value.trim();
+    var nm = rawName ? nameNumbers(rawName) : null;
+    if(nm && !nm.letters){ nm = null; calcOut.appendChild(el("p", "calc-err", "Numele nu conține litere latine care să poată fi calculate.")); }
+    var dt = rawDate ? parseDate(rawDate) : null;
+    if(rawDate && !dt){ calcOut.appendChild(el("p", "calc-err", "Data nu este validă (format an-lună-zi sau zi.lună.an, ani 1000–2999).")); }
+    if(!nm && !dt){
+      if(!rawName && !rawDate) calcOut.appendChild(el("p", "calc-err", "Introdu un nume, o dată sau ambele."));
+      return;
+    }
+    var year = parseInt(calcYear.value, 10);
+    var table = el("table", "calc-out"), tb = el("tbody");
+    table.appendChild(tb);
+    var details = [];
+    if(dt){
+      var lp = lifePath(dt);
+      row(tb, "Numărul Drumului Vieții", lp.value, meaningOf(lp.value));
+      details.push("Data: " + dt.d + "." + dt.m + "." + dt.y + " → suma cifrelor = " + lp.total + " → " + lp.value + (lp.alt !== lp.value ? ". Varianta cu reducere separată a zilei, lunii și anului dă " + lp.alt + " — metodele diferă." : "."));
+      if(year >= 1000 && year <= 2999){
+        var py = personalYear(dt, year);
+        row(tb, "Anul Personal " + year, py, meaningOf(py));
+      } else { calcOut.appendChild(el("p", "calc-err", "Anul pentru Anul Personal trebuie să fie între 1000 și 2999.")); }
+    }
+    if(nm){
+      row(tb, "Numărul Expresiei", nm.expression, meaningOf(nm.expression));
+      row(tb, "Numărul Dorinței Interioare (vocale)", nm.soul, meaningOf(nm.soul));
+      row(tb, "Numărul Personalității (consoane)", nm.personality, meaningOf(nm.personality));
+      details.push("Litere folosite: " + nm.letters + (nm.ignored ? " (" + nm.ignored + " caractere non-latine ignorate)" : ""));
+      details.push(nm.parts.join(" ") + " · total " + nm.sumAll + " (vocale " + nm.sumV + ", consoane " + nm.sumC + ")");
+    }
+    calcOut.appendChild(table);
+    details.forEach(function(t){ calcOut.appendChild(el("p", "calc-detail", t)); });
+  });
+
+
+  fromHash();
+})();
+</script>
+</body>
+</html>
