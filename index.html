@@ -2,11 +2,11 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-nowu1YKGJyHblxH+WhMn1edgYFiFukkjtp0wrLAM0gM='; style-src 'unsafe-inline'; img-src data: blob:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-cW5Wywj2GgKFkYao5ikNyqEG+5uiZdG5g5/P3tcJTcI='; style-src 'unsafe-inline'; img-src data: blob:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#1E2A44">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
 <title>Numerologie — curs interactiv</title>
 <meta name="description" content="Curs interactiv despre numerologie: istoric, calculul numărului Drumului Vieții și al numerologiei numelui, patru niveluri de curs, exerciții practice, diagrama procesului de reducere, sistemele pitagoreic, caldeean și kabbalistic comparate, glosar, jurnal și autoevaluare. Aplicație offline, fără frontiere.">
 <meta property="og:type" content="website">
@@ -20,6 +20,9 @@
     --bg:#EAECF1;
     --bg-panel:#F7F8FB;
     --ink:#1E2A44;
+    --navy:#1E2A44;
+    --wrong-bg:#F6E7E3;
+    --input-bg:#fff;
     --ink-soft:#4C5A78;
     --line:#C7CCDA;
     --accent:#A6672E;
@@ -48,7 +51,7 @@
     background-size:28px 28px;
   }
 
-  .sidebar{width:272px;flex:0 0 272px;background:var(--ink);color:#DCE1EC;padding:28px 20px 40px;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .sidebar{width:272px;flex:0 0 272px;background:var(--navy);color:#DCE1EC;padding:28px 20px 40px;position:sticky;top:0;height:100vh;overflow-y:auto}
   .brand{margin-bottom:26px}
   .brand .mark{width:52px;height:52px;margin-bottom:12px;display:block}
   .brand .brand-title{font-size:1.5rem;font-weight:800;margin:0 0 4px;color:#fff;letter-spacing:-.01em}
@@ -60,7 +63,7 @@
   .navlist a .num{color:#92A0C0;font-size:.8em;font-weight:700;font-variant-numeric:tabular-nums}
   .navlist a:hover{background:rgba(255,255,255,.06);color:#fff}
   .navlist a.active{background:rgba(166,103,46,.3);color:#fff;border-left:2px solid var(--accent)}
-  .nav-toggle{display:none;position:fixed;top:14px;left:14px;z-index:50;width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;border:none;font-size:1.1rem;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+  .nav-toggle{display:none;position:fixed;top:14px;left:14px;z-index:50;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:1.1rem;box-shadow:0 3px 10px rgba(0,0,0,.25)}
 
   .toolbar{
     position:sticky;top:0;z-index:10;
@@ -137,7 +140,7 @@
   .master-note{background:var(--gold-soft);border-left:3px solid var(--gold);border-radius:var(--radius-s);padding:12px 16px;margin:18px 0;font-size:.9rem;color:var(--ink)}
 
   .grade-head{display:flex;align-items:center;gap:16px;margin-bottom:6px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-  .grade-badge{width:56px;height:56px;border-radius:var(--radius-s);flex:0 0 56px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums}
+  .grade-badge{width:56px;height:56px;border-radius:var(--radius-s);flex:0 0 56px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums}
   .grade-head .sub{font-size:.85rem;color:var(--accent-deep);font-weight:700;margin:0 0 2px}
   .grade-head h2.title{margin:0}
 
@@ -146,7 +149,7 @@
   .focus-item .lbl{font-size:.72rem;color:var(--accent-deep);font-weight:700;margin-bottom:4px}
   .focus-item .val{font-size:.94rem;color:var(--ink)}
 
-  .formula{background:var(--ink);color:#F1E8D2;border-radius:var(--radius-s);padding:16px 18px;margin:16px 0;font-size:1.05rem;font-variant-numeric:tabular-nums}
+  .formula{background:var(--navy);color:#F1E8D2;border-radius:var(--radius-s);padding:16px 18px;margin:16px 0;font-size:1.05rem;font-variant-numeric:tabular-nums}
 
   .diagram-box{background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:22px;margin:24px 0;text-align:center}
   .diagram-box svg{max-width:100%;height:auto}
@@ -181,13 +184,13 @@
   #quizRoot label:hover{border-color:var(--accent)}
   #quizRoot input{margin-top:3px}
   #quizRoot label.correct{border-color:var(--accent-deep);background:var(--gold-soft)}
-  #quizRoot label.wrong{border-color:#B85C4A;background:#F6E7E3}
+  #quizRoot label.wrong{border-color:#B85C4A;background:var(--wrong-bg)}
   .qz-explain{font-size:.85rem;color:var(--accent-deep);margin:10px 0 0;display:none}
   .qz-explain.show{display:block}
-  #quizScore{font-size:1.3rem;margin:20px 0;padding:18px 22px;background:var(--ink);color:#fff;border-radius:var(--radius-m);display:none;font-weight:800}
+  #quizScore{font-size:1.3rem;margin:20px 0;padding:18px 22px;background:var(--navy);color:#fff;border-radius:var(--radius-m);display:none;font-weight:800}
   #quizScore.show{display:block}
   .btn{background:var(--accent-deep);color:#fff;border:none;padding:11px 22px;border-radius:var(--radius-s);font-size:.95rem;cursor:pointer;font-family:var(--sans);font-weight:700}
-  .btn:hover{background:var(--ink)}
+  .btn:hover{background:var(--navy)}
 
   footer.appfoot{max-width:var(--maxw);margin:50px auto 0;color:var(--ink-soft);font-size:.8rem}
 
@@ -200,10 +203,18 @@
     .toolbar{padding-top:0}
     .digit-grid{grid-template-columns:repeat(3,1fr)}
   }
+  @media (prefers-color-scheme:dark){
+    :root{color-scheme:dark;--bg:#12161F;--bg-panel:#1B2130;--ink:#E8EBF3;--ink-soft:#B4BDD2;--line:#3A4560;--accent:#D9A06A;--accent-deep:#E3B27E;--gold:#D2B063;--gold-soft:#2B2A22;--note-bg:#2B2A22;--note-line:#D2B063;--focus:#E3B27E;--ghost:#E3B27E;--wrong-bg:#3A2420;--input-bg:#0F131B}
+    body::before,body{background-image:none}
+    .btn{color:#14110C}
+    .tool-btns button.active{color:#14110C}
+    .navlist a.active{background:rgba(217,160,106,.28)}
+  }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.panel{animation:none}}
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   @media print{
+    :root{color-scheme:light;--bg:#fff;--bg-panel:#fff;--ink:#1E2A44;--ink-soft:#4C5A78;--line:#C7CCDA;--accent:#A6672E;--accent-deep:#7C4A1E;--gold-soft:#F1E8D2;--note-bg:#F1E8D2;--note-line:#B08D3D;--wrong-bg:#F6E7E3;--input-bg:#fff}
     .sidebar,.nav-toggle,.toolbar,.btn,#quizReset{display:none !important}
     .content{padding:0;background:#fff}
     body{background:#fff}
@@ -255,7 +266,7 @@
   .calc-form{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius-m);padding:18px 20px;margin:14px 0}
   .calc-form label{display:flex;flex-direction:column;gap:4px;font-size:.88rem;font-weight:700;color:var(--ink)}
   .calc-form label.wide{grid-column:1/-1}
-  .calc-form input{padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius-s);font-size:1rem;font-family:var(--sans);background:#fff;color:var(--ink);min-height:44px}
+  .calc-form input{padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius-s);font-size:1rem;font-family:var(--sans);background:var(--input-bg);color:var(--ink);min-height:44px}
   .calc-form .btn{grid-column:1/-1;justify-self:start}
   .calc-err{color:#8A2A1B;font-weight:700;margin:8px 0}
   table.calc-out{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:var(--bg-panel)}
@@ -495,15 +506,15 @@
       <p class="eyebrow">În practică</p>
       <h2 class="title">Aplicații practice</h2>
       <div class="card">
-        <h4>Calculează-ți propriul Număr al Drumului Vieții</h4>
+        <h4 role="heading" aria-level="3">Calculează-ți propriul Număr al Drumului Vieții</h4>
         <p>Scrie data nașterii cifră cu cifră, însumează totul, apoi redu succesiv suma la o singură cifră — oprindu-te dacă rezultatul intermediar este 11, 22 sau 33.</p>
       </div>
       <div class="card">
-        <h4>Analiza numelui</h4>
+        <h4 role="heading" aria-level="3">Analiza numelui</h4>
         <p>Convertește literele numelui folosind tabelul pitagoreic, separă vocalele de consoane și calculează cele trei numere derivate — Expresie, Dorință Interioară, Personalitate.</p>
       </div>
       <div class="card">
-        <h4>Jurnal anual</h4>
+        <h4 role="heading" aria-level="3">Jurnal anual</h4>
         <p>Notează Anul Personal la începutul fiecărui an calendaristic și revizitează notițele la final, pentru a observa dacă temele descrise s-au potrivit cu experiența reală — vezi secțiunea „Jurnal” pentru un spațiu dedicat.</p>
       </div>
     </section>
@@ -947,6 +958,13 @@
     return {letters: nn.letters, ignored: nn.ignored, parts: parts, sumAll: all, sumV: v, sumC: c,
             expression: reduce(all, true), soul: reduce(v, true), personality: reduce(c, true)};
   }
+  /* Tabel caldeean (convenția tradițională, bazată pe sunet; cifra 9 nu e atribuită niciunei litere) */
+  var CHALDEAN = [1,2,3,4,5,8,3,5,1,1,2,3,4,5,7,8,1,2,3,4,6,6,6,5,1,7];
+  function chaldeanName(letters){
+    var tot = 0, parts = [];
+    for(var i = 0; i < letters.length; i++){ var v = CHALDEAN[letters.charCodeAt(i) - 65]; tot += v; parts.push(letters.charAt(i) + "=" + v); }
+    return {total: tot, reduced: reduce(tot, false), parts: parts};
+  }
   function parseDate(str){
     var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(str) || /^(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})$/.exec(str);
     if(!m) return null;
@@ -1006,6 +1024,9 @@
       row(tb, "Numărul Dorinței Interioare (vocale)", nm.soul, meaningOf(nm.soul));
       row(tb, "Numărul Personalității (consoane)", nm.personality, meaningOf(nm.personality));
       if(dt){ var mat = reduce(lifePath(dt).value + nm.expression, true); row(tb, "Numărul Maturității (Drumul Vieții + Expresia)", mat, meaningOf(mat)); }
+      var ch = chaldeanName(nm.letters);
+      row(tb, "Valoarea numelui în sistemul caldeean", ch.total + (ch.total > 9 ? " → " + ch.reduced : ""), meaningOf(ch.reduced) + " (tabel caldeean; se compară cu Expresia pitagoreică, nu o înlocuiește)");
+      details.push("Caldeean: " + ch.parts.join(" ") + " · total " + ch.total);
       details.push("Litere folosite: " + nm.letters + (nm.ignored ? " (" + nm.ignored + " caractere non-latine ignorate)" : ""));
       details.push(nm.parts.join(" ") + " · total " + nm.sumAll + " (vocale " + nm.sumV + ", consoane " + nm.sumC + ")");
     }
