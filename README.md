@@ -6,6 +6,8 @@ Curs în română despre numerologie (sisteme pitagoreic, caldeean, kabbalistic)
 
 ![Captura de ecran](screenshot.png)
 
+**Ultima actualizare:** 11 octombrie 2026
+
 ## Ce este
 
 Un curs interactiv despre numerologie ca tradiție simbolică: istoric, patru niveluri (numere de bază, numerologia numelui, sisteme comparate, cicluri și compatibilități), exerciții, anexă comparativă, glosar, jurnal, autoevaluare și un calculator care aplică regulile din curs. Numerologia este prezentată ca tradiție și divertisment, fără validare științifică.
@@ -48,6 +50,12 @@ Descarcă `index.html` și deschide-l în browser; funcționează fără interne
 ## Licență
 
 Licența nu este încă declarată.
+
+## Istoric / Changelog
+
+### 11 octombrie 2026
+- Reparat: pagina are acum un titlu de nivel 1 în zona principală (pe mobil meniul lateral este ascuns, deci titlul din meniu nu mai conta); titlul din meniu este un element decorativ cu același aspect. 0 violări axe-core la 1280 și 360 px.
+- Verificat: calculatorul folosește anul curent calculat dinamic (Anul Personal 2026 la 11.10.2026).
 
 ## Autor
 
