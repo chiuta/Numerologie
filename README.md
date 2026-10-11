@@ -18,6 +18,7 @@ Secțiuni: Introducere, Istoric, cele patru niveluri, Aplicații practice, Calcu
 
 Verificate în cod și testate în browser:
 - Calculator local: Numărul Drumului Vieții, Anul Personal, Numărul Expresiei, al Dorinței Interioare (vocale) și al Personalității (consoane). Tabel pitagoreic A–Z (A,J,S=1 … I,R=9), numere maestre 11/22/33 păstrate la reducerea datei și a numelui, Anul Personal redus la 1–9. Diacriticele românești se calculează ca litera de bază (ă, â → A; î → I; ș, ț → S, T; și variantele cu sedilă); Y este consoană. Calculatorul arată literele și valorile folosite și semnalează când metoda cu reducere separată a zilei/lunii/anului dă alt rezultat.
+- Calculatorul adaugă Numărul Zilei de Naștere (ziua redusă cu oprire la 11, 22) și Numărul Maturității (Drumul Vieții + Expresia, cu oprire la 11, 22, 33) — convenții tradiționale, nu măsurători; butoanele „Copiază rezultatele” și „Adaugă în jurnal” (doar rezultatele numerice, fără nume sau dată) rămân în pagină.
 - Căutare fără sensibilitate la diacritice; link direct la secțiuni (`#calculator`, `#quiz`).
 - Jurnal descărcabil `.txt`; test de 10 întrebări cu ordinea răspunsurilor amestecată (Fisher–Yates).
 - Printare (secțiunea curentă), distribuire/copiere link, ecran complet, păstrare ecran activ (unde browserul le acceptă).
@@ -52,6 +53,10 @@ Descarcă `index.html` și deschide-l în browser; funcționează fără interne
 Licența nu este încă declarată.
 
 ## Istoric / Changelog
+
+### 11 octombrie 2026 (runda 6)
+- Securitate: CSP `script-src` pe hash sha256 al scriptului unic, fără `'unsafe-inline'` pentru scripturi.
+- Adăugat: Numărul Zilei de Naștere și Numărul Maturității în calculator; copiere rezultate și adăugare în Jurnal.
 
 ### 11 octombrie 2026
 - Reparat: pagina are acum un titlu de nivel 1 în zona principală (pe mobil meniul lateral este ascuns, deci titlul din meniu nu mai conta); titlul din meniu este un element decorativ cu același aspect. 0 violări axe-core la 1280 și 360 px.

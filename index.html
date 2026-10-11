@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-nowu1YKGJyHblxH+WhMn1edgYFiFukkjtp0wrLAM0gM='; style-src 'unsafe-inline'; img-src data: blob:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#1E2A44">
@@ -170,7 +170,7 @@
     background:var(--bg-panel);resize:vertical;line-height:1.55;
   }
   .journal-area:focus{outline:none;border-color:var(--accent)}
-  .journal-btns{display:flex;gap:10px;margin-top:12px}
+  .journal-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
   .btn-ghost{background:transparent;color:var(--accent-deep);border:1px solid var(--accent-deep)}
   .btn-ghost:hover{background:var(--gold-soft);color:var(--ink)}
 
@@ -246,7 +246,7 @@
   @media print{
     .panel{display:none !important}
     .panel.active{display:block !important;page-break-after:auto}
-    .sr-item,.search-results,.visually-hidden,.skip-link,.draw-box button,#calcForm{display:none !important}
+    .sr-item,.search-results,.visually-hidden,.skip-link,.draw-box button,#calcForm,.journal-btns{display:none !important}
     .tablewrap{overflow:visible}
     .tablewrap table.compare{min-width:0}
     footer.appfoot{display:block;color:#000}
@@ -525,7 +525,7 @@
         <button type="submit" class="btn">Calculează</button>
       </form>
       <div id="calcOut" aria-live="polite"></div>
-      <div class="note">Convenții: suma cifrelor datei este redusă până la o cifră, cu oprire la 11, 22, 33 (numere maestre); numerele din nume se obțin din suma tuturor literelor (Expresie), doar a vocalelor A E I O U (Dorință Interioară) și doar a consoanelor, inclusiv Y (Personalitate). Diacriticele românești se calculează ca litera de bază. Anul Personal se reduce la 1–9. Alte surse folosesc reguli diferite.</div>
+      <div class="note">Convenții: suma cifrelor datei este redusă până la o cifră, cu oprire la 11, 22, 33 (numere maestre); numerele din nume se obțin din suma tuturor literelor (Expresie), doar a vocalelor A E I O U (Dorință Interioară) și doar a consoanelor, inclusiv Y (Personalitate). Diacriticele românești se calculează ca litera de bază. Anul Personal se reduce la 1–9. Numărul Zilei de Naștere reduce ziua nașterii (cu oprire la 11, 22), iar Numărul Maturității reduce suma Drumului Vieții cu Expresia (cu oprire la 11, 22, 33). Alte surse folosesc reguli diferite.</div>
     </section>
 
     <section id="comparativ" class="panel">
@@ -994,6 +994,7 @@
     if(dt){
       var lp = lifePath(dt);
       row(tb, "Numărul Drumului Vieții", lp.value, meaningOf(lp.value));
+      row(tb, "Numărul Zilei de Naștere", reduce(dt.d, true), meaningOf(reduce(dt.d, true)));
       details.push("Data: " + dt.d + "." + dt.m + "." + dt.y + " → suma cifrelor = " + lp.total + " → " + lp.value + (lp.alt !== lp.value ? ". Varianta cu reducere separată a zilei, lunii și anului dă " + lp.alt + " — metodele diferă." : "."));
       if(year >= 1000 && year <= 2999){
         var py = personalYear(dt, year);
@@ -1004,11 +1005,30 @@
       row(tb, "Numărul Expresiei", nm.expression, meaningOf(nm.expression));
       row(tb, "Numărul Dorinței Interioare (vocale)", nm.soul, meaningOf(nm.soul));
       row(tb, "Numărul Personalității (consoane)", nm.personality, meaningOf(nm.personality));
+      if(dt){ var mat = reduce(lifePath(dt).value + nm.expression, true); row(tb, "Numărul Maturității (Drumul Vieții + Expresia)", mat, meaningOf(mat)); }
       details.push("Litere folosite: " + nm.letters + (nm.ignored ? " (" + nm.ignored + " caractere non-latine ignorate)" : ""));
       details.push(nm.parts.join(" ") + " · total " + nm.sumAll + " (vocale " + nm.sumV + ", consoane " + nm.sumC + ")");
     }
     calcOut.appendChild(table);
     details.forEach(function(t){ calcOut.appendChild(el("p", "calc-detail", t)); });
+    var acts = el("div", "journal-btns"), bC = el("button", "btn btn-ghost", "Copiază rezultatele"), bJ = el("button", "btn btn-ghost", "Adaugă în jurnal");
+    bC.type = bJ.type = "button";
+    function resultText(){
+      var L = [];
+      [].forEach.call(tb.rows, function(r){ L.push(r.cells[0].textContent + ": " + r.cells[1].textContent + " (" + r.cells[2].textContent + ")"); });
+      return L.join("\n") + "\n(Convenții tradiționale de calcul, nu măsurători. Nume și dată nesalvate.)";
+    }
+    bC.addEventListener("click", function(){
+      var t = resultText();
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(function(){ say("Rezultatele au fost copiate."); }, function(){ say("Nu s-au putut copia rezultatele."); });
+      } else { try { window.prompt("Copiază rezultatele:", t); } catch(e){ say("Nu s-au putut copia rezultatele."); } }
+    });
+    bJ.addEventListener("click", function(){
+      var jt = $("journalText"); jt.value = (jt.value ? jt.value.replace(/\s*$/, "") + "\n\n" : "") + resultText() + "\n"; jt.dispatchEvent(new Event("input"));
+      say("Rezultatele au fost adăugate în Jurnal.");
+    });
+    acts.appendChild(bC); acts.appendChild(bJ); calcOut.appendChild(acts);
   });
 
 
