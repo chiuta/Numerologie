@@ -6,7 +6,7 @@ Curs în română despre numerologie (sisteme pitagoreic, caldeean, kabbalistic)
 
 ![Captura de ecran](screenshot.png)
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 ## Ce este
 
@@ -55,6 +55,9 @@ Descarcă `index.html` și deschide-l în browser; funcționează fără interne
 Licența nu este încă declarată.
 
 ## Istoric / Changelog
+
+### 1.1.0 — 2026-10-14
+- Copie de rezervă și etichetare date (fff-kit).
 
 ### 1.0.0 — 2026-10-12
 - Versiunea și data ultimei actualizări sunt afișate în aplicație (subsol).
