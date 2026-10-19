@@ -86,6 +86,6 @@ MIT — vezi fișierul LICENSE.
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Rezumat
 
-A single-file, offline Romanian-language course on numerology (Pythagorean, Chaldean, Kabbalistic traditions) with a local calculator for life path, personal year and name numbers (expression, soul urge, personality), handling master numbers and Romanian diacritics. No storage, no external requests, no telemetry. Presented as tradition and entertainment with no scientific validation; not a substitute for professional advice. License: MIT (see the LICENSE file).
+Un curs offline într-un singur fișier, în limba română, despre numerologie (tradițiile pitagoreică, caldeeană, cabalistică), cu un calculator local pentru calea vieții, anul personal și numerele numelui (expresie, impuls sufletesc, personalitate), care tratează numerele-maestru și diacriticele românești. Fără stocare, fără cereri externe, fără telemetrie. Prezentată ca tradiție și divertisment, fără validare științifică; nu înlocuiește sfatul profesional. Licență: MIT (vezi fișierul LICENSE).
