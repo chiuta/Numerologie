@@ -1,87 +1,89 @@
-# Numerologie — curs interactiv
+# Numerology — interactive course
 
-Curs în română despre numerologie (sisteme pitagoreic, caldeean, kabbalistic), cu calculator local, într-un singur fișier HTML.
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Live:** https://chiuta.github.io/Numerologie/
+**Version:** 1.2.0 · **Last updated:** 2026-10-19
 
-![Captura de ecran](screenshot.png)
+A course in Romanian on numerology (Pythagorean, Chaldean and Kabbalistic systems), with a local calculator, in a single HTML file.
 
-**Versiune:** 1.2.0 · **Ultima actualizare:** 2026-10-19
+**Live app:** https://chiuta.github.io/Numerologie/
 
-## Ce este
+![Screenshot](screenshot.png)
 
-Un curs interactiv despre numerologie ca tradiție simbolică: istoric, patru niveluri (numere de bază, numerologia numelui, sisteme comparate, cicluri și compatibilități), exerciții, anexă comparativă, glosar, jurnal, autoevaluare și un calculator care aplică regulile din curs. Numerologia este prezentată ca tradiție și divertisment, fără validare științifică.
+## What it is
 
-## Funcții
+An interactive course on numerology as a symbolic tradition: history, four levels (core numbers, name numerology, systems compared, cycles and compatibilities), exercises, a comparative appendix, glossary, journal, self-assessment and a calculator that applies the rules from the course. Numerology is presented as tradition and entertainment, with no scientific validation.
 
-Secțiuni: Introducere, Istoric, cele patru niveluri, Aplicații practice, Calculator, Tradiții comparate, Glosar, Jurnal, Autoevaluare.
+## Features
 
-Verificate în cod și testate în browser:
-- Calculator local: Numărul Drumului Vieții, Anul Personal, Numărul Expresiei, al Dorinței Interioare (vocale) și al Personalității (consoane). Tabel pitagoreic A–Z (A,J,S=1 … I,R=9), numere maestre 11/22/33 păstrate la reducerea datei și a numelui, Anul Personal redus la 1–9. Diacriticele românești se calculează ca litera de bază (ă, â → A; î → I; ș, ț → S, T; și variantele cu sedilă); Y este consoană. Calculatorul arată literele și valorile folosite și semnalează când metoda cu reducere separată a zilei/lunii/anului dă alt rezultat.
-- Calculatorul adaugă Numărul Zilei de Naștere (ziua redusă cu oprire la 11, 22) și Numărul Maturității (Drumul Vieții + Expresia, cu oprire la 11, 22, 33) — convenții tradiționale, nu măsurători; butoanele „Copiază rezultatele” și „Adaugă în jurnal” (doar rezultatele numerice, fără nume sau dată) rămân în pagină.
-- Calculatorul adaugă valoarea numelui în sistemul caldeean (tabel tradițional bazat pe sunet, fără cifra 9; total compus → redus), afișată alături de Expresia pitagoreică, cu literele detaliate.
-- Mod întunecat automat (`prefers-color-scheme: dark`; la tipărire se revine la paleta deschisă).
-- Căutare fără sensibilitate la diacritice; link direct la secțiuni (`#calculator`, `#quiz`).
-- Jurnal descărcabil `.txt`; test de 10 întrebări cu ordinea răspunsurilor amestecată (Fisher–Yates).
-- Printare (secțiunea curentă), distribuire/copiere link, ecran complet, păstrare ecran activ (unde browserul le acceptă).
+Sections: Introduction, History, the four levels, Practical applications, Calculator, Traditions compared, Glossary, Journal, Self-assessment.
 
-## Manual de utilizare
+Verified in the code and tested in the browser:
+- Local calculator: Life Path Number, Personal Year, Expression Number, Soul Urge (vowels) and Personality (consonants). Pythagorean A–Z table (A,J,S=1 … I,R=9), master numbers 11/22/33 kept when reducing the date and the name, Personal Year reduced to 1–9. Romanian diacritics are calculated as the base letter (ă, â → A; î → I; ș, ț → S, T; and the cedilla variants); Y is a consonant. The calculator shows the letters and values used and flags when the method with separate reduction of day/month/year gives a different result.
+- The calculator adds the Birthday Number (the day reduced, stopping at 11, 22) and the Maturity Number (Life Path + Expression, stopping at 11, 22, 33) — traditional conventions, not measurements; the "Copy results" and "Add to journal" buttons (numerical results only, without name or date) stay on the page.
+- The calculator adds the value of the name in the Chaldean system (traditional sound-based table, without the digit 9; compound total → reduced), shown alongside the Pythagorean Expression, with the letters detailed.
+- Automatic dark mode (`prefers-color-scheme: dark`; when printing, it reverts to the light palette).
+- Diacritics-insensitive search; direct link to sections (`#calculator`, `#quiz`).
+- Journal downloadable as `.txt`; 10-question quiz with shuffled answer order (Fisher–Yates).
+- Printing (current section), sharing/copying the link, full screen, keeping the screen awake (where the browser supports them).
 
-1. Alege o secțiune din meniu (pe mobil apasă ☰).
-2. Parcurge nivelurile și exercițiile.
-3. În „Calculator” scrie numele și/sau data nașterii (format de dată din selector sau `zi.lună.an`), verifică anul pentru Anul Personal și apasă „Calculează”.
-4. Notează observațiile în „Jurnal” și descarcă-le ca `.txt` înainte de a închide pagina.
-5. Rezolvă „Autoevaluarea”; „Reia testul” amestecă răspunsurile.
+## User guide
 
-## Confidențialitate și rețea
+1. Choose a section from the menu (on mobile, tap ☰).
+2. Go through the levels and the exercises.
+3. In "Calculator" enter the name and/or the date of birth (date format from the selector or `day.month.year`), check the year for the Personal Year and press "Calculate".
+4. Write your observations in the "Journal" and download them as `.txt` before closing the page.
+5. Take the "Self-assessment"; "Retake the test" shuffles the answers.
 
-- Stocare: nu folosește `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri. Numele și data introduse în calculator rămân în pagină și nu sunt trimise sau salvate.
-- Rețea: nicio cerere externă (fără fonturi, scripturi, imagini, analitice). CSP `default-src 'none'` blochează conexiunile. Nu există linkuri externe.
-- Permisiuni: nu cere nimic la încărcare; la apăsarea butoanelor pot fi folosite ecran complet, wake lock, clipboard (copiere link) și vibrații pe mobil la test.
+## Privacy and network
 
-## Limite și avertismente
+- Storage: it does not use `localStorage`, `sessionStorage`, IndexedDB or cookies. The name and date entered in the calculator stay on the page and are neither sent nor saved.
+- Network: no external requests (no fonts, scripts, images, analytics). CSP `default-src 'none'` blocks connections. There are no external links.
+- Permissions: it asks for nothing on load; when you press buttons, full screen, wake lock, clipboard (link copying) and vibration on mobile during the quiz may be used.
 
-- Numerologia este o tradiție simbolică, folosită ca reflecție și divertisment. Nu există dovezi științifice că numele sau data nașterii determină caracterul, relațiile sau destinul.
-- Conținutul nu înlocuiește sfatul medical, psihologic, juridic sau financiar; nu lua decizii despre sănătate, bani, relații sau angajări pe baza unui calcul.
-- Nu există o convenție unică de calcul; alte surse pot da alte rezultate (tratarea lui Y, a diacriticelor, ordinea reducerii).
-- Originea babiloniană a sistemului caldeean și legătura directă a lui Pitagora cu sistemul modern sunt atribuiri tradiționale, nu fapte istorice confirmate; menționarea unor practicieni români este informativă, fără evaluare.
+## Limits and warnings
 
-## Rulare locală / offline
+- Numerology is a symbolic tradition, used for reflection and entertainment. There is no scientific evidence that name or date of birth determines character, relationships or destiny.
+- The content does not replace medical, psychological, legal or financial advice; do not make decisions about health, money, relationships or employment on the basis of a calculation.
+- There is no single calculation convention; other sources may give different results (treatment of Y, of diacritics, order of reduction).
+- The Babylonian origin of the Chaldean system and Pythagoras's direct connection to the modern system are traditional attributions, not confirmed historical facts; the mention of Romanian practitioners is informative, without evaluation.
 
-Descarcă `index.html` și deschide-l în browser; funcționează fără internet.
+## Running locally / offline
 
-## Licență
+Download `index.html` and open it in the browser; it works without internet.
 
-MIT — vezi fișierul LICENSE.
+## License
 
-## Istoric / Changelog
+MIT — see the LICENSE file.
+
+## History / Changelog
 
 ### 1.2.0 — 2026-10-19
-- Link opțional „Analiză extinsă în NumeroLogIA” (filă nouă, `rel="noopener noreferrer"`), doar la click explicit: numele și data nașterii apar în fragmentul `#` al adresei NumeroLogIA (nu se trimit pe rețea, dar rămân în istoricul browserului); notă vizibilă lângă link. Afirmația „nu sunt trimise nicăieri” amendată în consecință.
+- Optional link "Extended analysis in NumeroLogIA" (new tab, `rel="noopener noreferrer"`), only on an explicit click: the name and date of birth appear in the `#` fragment of the NumeroLogIA address (they are not sent over the network, but remain in the browser history); a visible note next to the link. The statement "not sent anywhere" was amended accordingly.
 
 ### 1.1.0 — 2026-10-14
-- Copie de rezervă și etichetare date (fff-kit).
+- Backup and data labelling (fff-kit).
 
 ### 1.0.0 — 2026-10-12
-- Versiunea și data ultimei actualizări sunt afișate în aplicație (subsol).
+- The version and the date of the last update are shown in the app (footer).
 
-### 11 octombrie 2026 (runda 7)
-- Nou: mod întunecat (paleta folosea `--ink` și ca fundal; fundalurile fixe au trecut pe `--navy`, iar tipărirea forțează paleta deschisă); testat cu axe-core pe toate cele 13 secțiuni, în schemele deschisă și întunecată, la 1280 și 360 px.
-- Nou: valoarea caldeeană a numelui în calculator.
-- Reparat: ordinea titlurilor în „Aplicații practice” (h2 → h4; axe `heading-order`).
+### 11 October 2026 (round 7)
+- New: dark mode (the palette used `--ink` also as a background; fixed backgrounds moved to `--navy`, and printing forces the light palette); tested with axe-core on all 13 sections, in light and dark schemes, at 1280 and 360 px.
+- New: the Chaldean value of the name in the calculator.
+- Fixed: heading order in "Practical applications" (h2 → h4; axe `heading-order`).
 
-### 11 octombrie 2026 (runda 6)
-- Securitate: CSP `script-src` pe hash sha256 al scriptului unic, fără `'unsafe-inline'` pentru scripturi.
-- Adăugat: Numărul Zilei de Naștere și Numărul Maturității în calculator; copiere rezultate și adăugare în Jurnal.
+### 11 October 2026 (round 6)
+- Security: CSP `script-src` by sha256 hash of the single script, without `'unsafe-inline'` for scripts.
+- Added: Birthday Number and Maturity Number in the calculator; copying results and adding them to the Journal.
 
-### 11 octombrie 2026
-- Reparat: pagina are acum un titlu de nivel 1 în zona principală (pe mobil meniul lateral este ascuns, deci titlul din meniu nu mai conta); titlul din meniu este un element decorativ cu același aspect. 0 violări axe-core la 1280 și 360 px.
-- Verificat: calculatorul folosește anul curent calculat dinamic (Anul Personal 2026 la 11.10.2026).
+### 11 October 2026
+- Fixed: the page now has a level-1 heading in the main area (on mobile the side menu is hidden, so the heading in the menu no longer counted); the heading in the menu is a decorative element with the same look. 0 axe-core violations at 1280 and 360 px.
+- Verified: the calculator uses the current year computed dynamically (Personal Year 2026 on 11.10.2026).
 
-## Autor
+## Author
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Summary
 
-A single-file, offline Romanian-language course on numerology (Pythagorean, Chaldean, Kabbalistic traditions) with a local calculator for life path, personal year and name numbers (expression, soul urge, personality), handling master numbers and Romanian diacritics. No storage, no external requests, no telemetry. Presented as tradition and entertainment with no scientific validation; not a substitute for professional advice. License: MIT (see the LICENSE file).
+A single-file, offline course in Romanian on numerology (Pythagorean, Chaldean, Kabbalistic traditions) with a local calculator for life path, personal year and name numbers (expression, soul urge, personality), handling master numbers and Romanian diacritics. No storage, no external requests, no telemetry. Presented as tradition and entertainment with no scientific validation; not a substitute for professional advice. License: MIT (see the LICENSE file).
