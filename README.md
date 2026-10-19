@@ -10,7 +10,7 @@ A course in Romanian on numerology (Pythagorean, Chaldean and Kabbalistic system
 
 **Live app:** https://chiuta.github.io/Numerologie/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 ## What it is
 

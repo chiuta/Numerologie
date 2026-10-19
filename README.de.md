@@ -10,7 +10,7 @@ Ein Kurs auf Rumänisch über Numerologie (pythagoreisches, chaldäisches und ka
 
 **Online-Anwendung:** https://chiuta.github.io/Numerologie/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Was es ist
 

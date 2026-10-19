@@ -10,7 +10,7 @@ Curso em romeno sobre numerologia (sistemas pitagórico, caldeu e cabalístico),
 
 **Aplicação online:** https://chiuta.github.io/Numerologie/
 
-![Captura de ecrã](screenshot.png)
+![Captura de ecrã](screenshot.pt.png)
 
 ## O que é
 

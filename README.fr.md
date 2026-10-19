@@ -10,7 +10,7 @@ Cours en roumain sur la numérologie (systèmes pythagoricien, chaldéen et kabb
 
 **Application en ligne :** https://chiuta.github.io/Numerologie/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## De quoi s'agit-il
 

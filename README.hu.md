@@ -10,7 +10,7 @@ Román nyelvű tanfolyam a numerológiáról (pitagoreus, káldeai és kabbalisz
 
 **Online alkalmazás:** https://chiuta.github.io/Numerologie/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Mi ez
 

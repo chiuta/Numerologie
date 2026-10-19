@@ -10,7 +10,7 @@ Curs în română despre numerologie (sisteme pitagoreic, caldeean, kabbalistic)
 
 **Live:** https://chiuta.github.io/Numerologie/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Ce este
 

@@ -10,7 +10,7 @@ Corso in rumeno sulla numerologia (sistemi pitagorico, caldeo e cabalistico), co
 
 **Applicazione online:** https://chiuta.github.io/Numerologie/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Che cos'è
 
