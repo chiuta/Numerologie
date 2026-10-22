@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.2 · **Ultima actualizare:** 2026-10-22
+**Versiune:** 1.3.3 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -59,6 +59,9 @@ Descarcă `index.html` și deschide-l în browser; funcționează fără interne
 MIT — vezi fișierul LICENSE.
 
 ## Istoric / Changelog
+
+### 1.3.3 — 2026-10-22
+- fff-kit 1.1.2: PBKDF2 600 000 iterații, protecție anti-clickjacking
 
 ### 1.3.2 — 2026-10-22
 - Casetele confirm()/prompt() ale browserului înlocuite cu dialoguri proprii, traduse în cele 8 limbi (golirea jurnalului, copierea manuală a linkului și a rezultatelor).
