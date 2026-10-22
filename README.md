@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.3.1 · **Last updated:** 2026-10-19
+**Version:** 1.3.2 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -59,6 +59,9 @@ Download `index.html` and open it in the browser; it works without internet.
 MIT — see the LICENSE file.
 
 ## History / Changelog
+
+### 1.3.2 — 2026-10-22
+- Native browser confirm()/prompt() boxes replaced by own dialogs translated into the 8 languages (clearing the journal, manual copy of the link and of results).
 
 ### 1.2.0 — 2026-10-19
 - Optional link "Extended analysis in NumeroLogIA" (new tab, `rel="noopener noreferrer"`), only on an explicit click: the name and date of birth appear in the `#` fragment of the NumeroLogIA address (they are not sent over the network, but remain in the browser history); a visible note next to the link. The statement "not sent anywhere" was amended accordingly.

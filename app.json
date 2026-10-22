@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "numerologie",
   "name": "Numerologie — curs interactiv",
-  "version": "1.3.1",
-  "updated": "2026-10-19",
+  "version": "1.3.2",
+  "updated": "2026-10-22",
   "description": "Curs interactiv despre numerologie: istoric, calculul numărului Drumului Vieții și al numerologiei numelui, patru niveluri de curs, exerciții practice, diagrama procesului de reducere, sistemele pitagoreic, caldeean și kabbalistic comparate, glosar, jurnal și autoevaluare. Aplicație offline, fără frontiere.",
   "egress": [],
   "permissions": [
@@ -15,13 +15,13 @@
   "storageKeys": [
     "numerologie-lang"
   ],
-  "sizeBytes": 351602,
-  "sha256": "b1e4eff7fe11b02a307d6f81af6100bd833aa1a1b2fae459a04e057190349361",
+  "sizeBytes": 353875,
+  "sha256": "a71826d60758ce388e709ab3355ed753da39fd02a9f4afc2807578cfff363675",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×3",
+      "script-src": "sha256×4",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data: blob:",
       "font-src": "'none'",

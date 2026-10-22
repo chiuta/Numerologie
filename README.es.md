@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.3.1 · **Última actualización:** 2026-10-19
+**Versión:** 1.3.2 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -59,6 +59,9 @@ Descarga `index.html` y ábrelo en el navegador; funciona sin internet.
 MIT — consulta el archivo LICENSE.
 
 ## Historial / Changelog
+
+### 1.3.2 — 2026-10-22
+- Los cuadros confirm()/prompt() del navegador sustituidos por diálogos propios traducidos a los 8 idiomas (vaciar el diario, copia manual del enlace y de los resultados).
 
 ### 1.2.0 — 2026-10-19
 - Enlace opcional «Análisis ampliado en NumeroLogIA» (pestaña nueva, `rel="noopener noreferrer"`), solo con un clic explícito: el nombre y la fecha de nacimiento aparecen en el fragmento `#` de la dirección de NumeroLogIA (no se envían por la red, pero quedan en el historial del navegador); nota visible junto al enlace. La afirmación «no se envían a ninguna parte» se ha modificado en consecuencia.

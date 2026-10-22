@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.3.1 · **Zuletzt aktualisiert:** 2026-10-19
+**Version:** 1.3.2 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -59,6 +59,9 @@ Lade `index.html` herunter und öffne die Datei im Browser; sie funktioniert ohn
 MIT — siehe Datei LICENSE.
 
 ## Verlauf / Changelog
+
+### 1.3.2 — 2026-10-22
+- Die confirm()/prompt()-Fenster des Browsers durch eigene, in die 8 Sprachen übersetzte Dialoge ersetzt (Tagebuch leeren, manuelles Kopieren von Link und Ergebnissen).
 
 ### 1.2.0 — 2026-10-19
 - Optionaler Link „Erweiterte Analyse in NumeroLogIA“ (neuer Tab, `rel="noopener noreferrer"`), nur bei ausdrücklichem Klick: Name und Geburtsdatum erscheinen im `#`-Fragment der NumeroLogIA-Adresse (sie werden nicht über das Netzwerk gesendet, bleiben aber im Browserverlauf); sichtbarer Hinweis neben dem Link. Die Aussage „werden nirgendwohin gesendet“ wurde entsprechend angepasst.
