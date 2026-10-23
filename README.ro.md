@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.5 · **Ultima actualizare:** 2026-10-23
+**Versiune:** 1.3.6 · **Ultima actualizare:** 2026-10-23
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -59,6 +59,10 @@ Descarcă `index.html` și deschide-l în browser; funcționează fără interne
 MIT — vezi fișierul LICENSE.
 
 ## Istoric / Changelog
+
+### 1.3.6 — 2026-10-23
+
+Audit: în calculator, un nume fără vocale (sau fără consoane) afișa cheia brută „m0” ca sens al numărului 0; acum apare o notă tradusă în cele 8 limbi (traducere automată, neverificată de vorbitori nativi).
 
 ### 1.3.4 — 2026-10-22
 
