@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.7 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -59,6 +59,10 @@ Descarcă `index.html` și deschide-l în browser; funcționează fără interne
 MIT — vezi fișierul LICENSE.
 
 ## Istoric / Changelog
+
+### 2.0.0 — 2026-10-26
+
+Secțiune nouă „Calculator multi-sistem”: același nume în sistemul pitagoreic, caldeean și ordinal (A=1…Z=26), cu lanțul de reducere și explicația diferențelor, plus gematria ebraică (valoare standard și redusă, tastatură ebraică), note istorice scurte și tipărire. Informativ, nu predicție. Test: `tests/multisistem.test.mjs`.
 
 ### 1.3.6 — 2026-10-23
 
