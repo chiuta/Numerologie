@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil; explică curs vs. unealtă și trimite la NumeroLogIA · **Offline:** complet (fără cereri de rețea)
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -53,6 +55,10 @@ Verificate în cod și testate în browser:
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; funcționează fără internet.
+
+## Numerologie vs. NumeroLogIA: curs vs. unealtă (2026-10-27)
+
+O notă scurtă în introducere (8 limbi) explică diferența și trimite la aplicația-soră: **Numerologie este un curs** (calculatorul din ea este didactic), iar **[NumeroLogIA](https://chiuta.github.io/NumeroLogIA/) este o unealtă** pentru portret numeric complet (cicluri, compatibilitate, BaZi și altele). Sunt aplicații separate, complementare: **nu au fost fuzionate** și nu s-a șters conținut.
 
 ## Licență
 
