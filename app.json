@@ -15,8 +15,8 @@
   "storageKeys": [
     "numerologie-lang"
   ],
-  "sizeBytes": 423739,
-  "sha256": "cb41a04767ce8a517a7f16a4cba0fb25918bbb95398d4f585017903aceb2a30f",
+  "sizeBytes": 564173,
+  "sha256": "d51f4ded9b75454c7bf9786903ed16b77d2ba379d4b34dcb43c9654881f329e7",
   "csp": {
     "present": true,
     "directives": {
@@ -59,7 +59,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "kit": {
@@ -69,7 +73,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "selfSerializing": false
