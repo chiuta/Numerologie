@@ -1,5 +1,9 @@
 # Jurnal de modificări — Numerologie
 
+## 2.0.4 — 2026-11-08
+
+- Autoevaluare: exercițiu de gândire critică despre efectul Barnum (Forer), în 8 limbi.
+
 ## 2.0.1 — 2026-11-02 (reîmprospătare kit)
 
 - Nou (kit): **Sincronizare între dispozitive** (`FFF.sync`) — în dialogul «Transparență» (clic pe versiune → Copie de siguranță): conectezi două dispozitive direct (WebRTC, cod/QR, fără server și fără cont) și își schimbă datele aplicației; cea mai recentă valoare câștigă, secretele (chei API, parole) nu se trimit, ștergerile nu se propagă. Aplicarea trece prin importul kitului (confirmare, chei permise, rollback).
