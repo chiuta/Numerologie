@@ -10,18 +10,19 @@
     "navigator.share",
     "clipboard",
     "serviceWorker",
-    "localStorage"
+    "localStorage",
+    "WebGL"
   ],
   "storageKeys": [
     "numerologie-lang"
   ],
-  "sizeBytes": 625986,
-  "sha256": "92d82c62df94c3b873689753be4f776f3bae4ad30ba4d4dff68945020a3d22e2",
+  "sizeBytes": 677625,
+  "sha256": "b24a9d58507000ac2345661ef1fdf225ea975e7fca986d4506d0ddd2d3b76dc9",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×4",
+      "script-src": "sha256×5",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data: blob:",
       "font-src": "'none'",
